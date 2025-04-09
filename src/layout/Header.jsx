@@ -60,7 +60,7 @@ export function Header({ children }) {
           style={{ transform: `translateX(-${current * 100}%)` }}
         >
           {slides.map((item, index) => {
-            return <img src={item} key={index} />;
+            return <img className="-z-50" src={item} key={index} />;
           })}
           <div className="flex flex-col absolute ml-32 mt-16">
             <label className=" font-bold text-2xl text-white" htmlFor="">
