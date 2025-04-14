@@ -8,7 +8,7 @@ export function PageContent({ children }) {
     <>
       <HeaderNew />
       <main>{children}</main>
-      {/* <HomePage /> */}
+      <HomePage />
       <Footer />
     </>
   );
