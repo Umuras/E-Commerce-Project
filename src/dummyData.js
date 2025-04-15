@@ -73,7 +73,7 @@ export const items = [
     altText: "Slide 1",
     caption: "GROCERIES",
     caption2: "DELIVERY",
-    text: "We know how large objects will act, but things on a small scale.",
+    text: "We know how large objects will act, but things on a small scale",
     key: 1,
   },
   {
@@ -82,7 +82,7 @@ export const items = [
     altText: "Slide 2",
     caption: "GROCERIES",
     caption2: "DELIVERY",
-    text: "We know how large objects will act, but things on a small scale.",
+    text: "We know how large objects will act, but things on a small scale",
     key: 2,
   },
 ];
@@ -171,6 +171,57 @@ export const bestSellerProducts2 = [
     firstPrice: "$16.48",
     secondPrice: "$6.48",
   },
+];
+
+export const bestSellerProductsDesktop = [
+  {
+    src: icecreamProductPhoto,
+    altText: "Ice Cream",
+    firstText: "Graphic Design",
+    secondText: "English Department",
+    firstPrice: "$16.48",
+    secondPrice: "$6.48",
+  },
+  {
+    src: appleProductPhoto,
+    altText: "Apples",
+    firstText: "Graphic Design",
+    secondText: "English Department",
+    firstPrice: "$16.48",
+    secondPrice: "$6.48",
+  },
+  {
+    src: roastBeefPhoto,
+    altText: "Roasted Beef",
+    firstText: "Graphic Design",
+    secondText: "English Department",
+    firstPrice: "$16.48",
+    secondPrice: "$6.48",
+  },
+  {
+    src: icecreamProductPhoto,
+    altText: "Ice Cream",
+    firstText: "Graphic Design",
+    secondText: "English Department",
+    firstPrice: "$16.48",
+    secondPrice: "$6.48",
+  },
+  {
+    src: appleProductPhoto,
+    altText: "Apples",
+    firstText: "Graphic Design",
+    secondText: "English Department",
+    firstPrice: "$16.48",
+    secondPrice: "$6.48",
+  },
+  {
+    src: roastBeefPhoto,
+    altText: "Roasted Beef",
+    firstText: "Graphic Design",
+    secondText: "English Department",
+    firstPrice: "$16.48",
+    secondPrice: "$6.48",
+  }
 ];
 
 export const brandIcons = [

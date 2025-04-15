@@ -1,7 +1,9 @@
+import { use, useEffect, useState } from "react";
 import { BlogCard } from "../components/BlogCard";
 import { Clients } from "../components/Clients";
 import { FourthProductCard } from "../components/FourthProductCard";
 import { ProductCard } from "../components/ProductCard";
+import { ProductCardDesktop } from "../components/ProductCardDesktop";
 import { SecondProductCard } from "../components/SecondProductCard";
 import { ShopCard } from "../components/ShopCard";
 import { ThirdProductCard } from "../components/ThirdProductCard";
@@ -27,7 +29,10 @@ import { foodItemsFirst } from "../dummyData";
 import { furniturePhoto } from "../dummyData";
 import { bestSellerProducts } from "../dummyData";
 
-export function HomePage() {
+export function HomePage({ isMobile }) {
+
+
+
   const shopCardPhotos = [icecreamPhoto, appleProductPhoto, roastBeefPhoto];
   const productCardPhotos = [
     furniturePhoto,
@@ -41,7 +46,9 @@ export function HomePage() {
       <ShopCard shopCardPhotos={shopCardPhotos} />
 
       <section className="w-full pb-70">
-        <ProductCard photo={furniturePhoto} textPhoto={false} />
+        {isMobile ? <ProductCard photo={furniturePhoto} textPhoto={false} />
+          : <ProductCardDesktop photo={furniturePhoto} textPhoto={false} />}
+
       </section>
       <SecondProductCard />
       <section className="w-full pb-70">

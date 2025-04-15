@@ -16,7 +16,7 @@ import {
   CarouselCaption,
 } from "reactstrap";
 
-export function HeaderNew(args) {
+export function HeaderNew({ isMobile }) {
   const [menu, setMenu] = useState(false);
   const [current, setCurrent] = useState(0);
 
@@ -122,7 +122,7 @@ export function HeaderNew(args) {
               </label> */}
               <label className="hidden absolute bottom-20 left-24 text-white w-1/2 
               lg:text-3xl lg:bottom-105 lg:translate-x-[35.75rem] lg:left-0 lg:text-center lg:w-[34%]">
-                {window.innerWidth <= 1024 ? item.text : item.text + " just do not act that way."}
+                {isMobile ? item.text : item.text + " just do not act that way."}
               </label>
               <button className="absolute bottom-8 left-32 px-3 py-2 bg-blue-400 font-bold text-white
               lg:bottom-80 lg:left-0 lg:translate-x-[50rem] lg:!px-14 lg:!py-4 lg:!rounded-[5px]">
