@@ -58,7 +58,7 @@ export function HeaderNew(args) {
       overflow-hidden: Yalnızca bir slayt görünmesini sağlar, diğer slaytlar kaybolur.
       rounded-lg: Kenarları yuvarlar.
       shadow-lg: Kutunun etrafına gölge ekler. */}
-      <div className="relative w-full max-w-3xl mx-auto overflow-hidden rounded-lg shadow-lg">
+      <div className="relative w-full max-w-3xl mx-auto overflow-hidden shadow-lg">
         {/* flex: Slaytları yatayda sıralar.
       transition-transform duration-500: 500ms süresince geçiş animasyonu ekler.
       style={{ transform: translateX(-${current * 100}%) }}: Bu satır, current state'ine bağlı olarak slaytları yatayda kaydırır. 

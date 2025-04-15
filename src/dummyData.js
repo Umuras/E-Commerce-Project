@@ -23,6 +23,14 @@ import lyft from "./assets/lyft.svg";
 import candy from "./assets/candy.svg";
 import bleach from "./assets/bleach.png";
 import cheese from "./assets/cheese.png";
+import firstBlogPhoto from "./assets/firstBlog.svg";
+import secondBlogPhoto from "./assets/secondBlog.svg";
+import thirdBlogPhoto from "./assets/thirdBlog.svg";
+import clockPhoto from "./assets/clock.svg";
+import graphPhoto from "./assets/graph.svg";
+import rightIconBluePhoto from "./assets/rightIconBlue.svg";
+
+
 
 export const slides = [foods, foods2];
 export const icecreamPhoto = icecream;
@@ -39,6 +47,13 @@ export const donutProductPhoto = donutPhoto;
 export const appleProductPhoto = applePhoto;
 export const cashewProductPhoto = cashewPhoto;
 export const whaleCardPhoto = whalePhoto;
+export const blogPhotoFirst = firstBlogPhoto;
+export const blogPhotoSecond = secondBlogPhoto;
+export const blogPhotoThird = thirdBlogPhoto;
+export const clockIcon = clockPhoto;
+export const graphIcon = graphPhoto;
+export const rightIconBlue = rightIconBluePhoto;
+
 
 export const items = [
   {
@@ -171,3 +186,27 @@ export const brandIcons = [
     altText: "Vector",
   },
 ];
+
+export const blogCardItems = [
+  {
+    src: blogPhotoFirst,
+    altText: "Blog Photo 1",
+    clockIcon: clockIcon,
+    graphIcon: graphIcon,
+    rightIconBlue: rightIconBlue,
+  },
+  {
+    src: blogPhotoSecond,
+    altText: "Blog Photo 2",
+    clockIcon: clockIcon,
+    graphIcon: graphIcon,
+    rightIconBlue: rightIconBlue,
+  },
+  {
+    src: blogPhotoThird,
+    altText: "Blog Photo 3",
+    clockIcon: clockIcon,
+    graphIcon: graphIcon,
+    rightIconBlue: rightIconBlue,
+  },
+]

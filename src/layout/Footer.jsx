@@ -20,7 +20,7 @@ export function Footer() {
             <p className="font-bold text-white mt-2 m-0 w-[80%] mb-4">
               the quick fox jumps over the lazy dog{" "}
             </p>
-            <button className="px-13 py-2 bg-blue-500 font-bold text-white rounded-full">
+            <button className="px-10 py-3.5 bg-blue-500 font-bold text-white !rounded-[5px] ">
               Contact Us
             </button>
             <div className="flex flex-col items-start w-full max-w[239px] max-h-[1052px] mt-32 gap-4">
