@@ -4,7 +4,7 @@ export function ShopCard() {
   //Shopcarda homepage üzerinden foodItemsFirst arrayini alır ve map ile döngüye sokar.
   return (
     <>
-      <section className="bg-[#FAFAFA] flex flex-col items-center py-20">
+      <section className="bg-[#FAFAFA] flex flex-col lg:flex-row lg:justify-center lg:gap-20 items-center py-20">
         {foodItemsFirst.map((item, index) => {
           return (
             <div key={index}>

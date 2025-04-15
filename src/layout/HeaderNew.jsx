@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
-import { items, slides } from "../dummyData";
+import { basket, items, like, search, slides, user } from "../dummyData";
 import {
   Search,
   ShoppingCart,
@@ -30,12 +30,40 @@ export function HeaderNew(args) {
 
   return (
     <header>
-      <div className="flex justify-between mx-8 mt-8 items-center">
-        <label className="text-xl font-bold">BrandName</label>
+      <div className="flex justify-between mx-8 mt-8 items-center lg:mx-32  mb-7">
+        <label className="text-xl font-bold">Bandage</label>
+        <nav className="hidden lg:flex gap-6 lg:items-center lg:justify-center ">
+          <li className="list-none"><a className="!text-[#737373] !no-underline !font-bold" href="">Home</a></li>
+          <li className="list-none"><a className="!text-[#252B42] !no-underline" href="">Shop</a></li>
+          <li className="list-none"><a className="!text-[#737373] !no-underline !font-bold" href="">About</a></li>
+          <li className="list-none"><a className="!text-[#737373] !no-underline !font-bold" href="">Blog</a></li>
+          <li className="list-none"><a className="!text-[#737373] !no-underline !font-bold" href="">Contact</a></li>
+          <li className="list-none"><a className="!text-[#737373] !no-underline !font-bold" href="">Pages</a></li>
+        </nav>
         <div className="flex gap-8">
-          <Search />
-          <ShoppingCart />
-          <MenuIcon onClick={() => setMenu(!menu)} />
+          <Search className="lg:hidden" />
+          <ShoppingCart className="lg:hidden" />
+          <MenuIcon className="lg:hidden" onClick={() => setMenu(!menu)} />
+          <div className="hidden lg:flex lg:gap-1 lg:items-center">
+            <img className="hidden lg:block lg:w-5" src={user} alt="" />
+            <a className="m-0 !no-underline !font-bold !text-[#23A6F0]" href="">Login</a>
+            <span>/</span>
+            <a className="!no-underline !font-bold !text-[#23A6F0]" href="">Register</a>
+          </div>
+          <div className="hidden lg:flex lg:gap-3 lg:items-center lg:justify-center">
+            <img src={search} alt="" />
+            <div className="hidden lg:flex lg:gap-1">
+              <img src={basket} alt="" />
+              <label className="text-[#23A6F0]" htmlFor="">1</label>
+
+            </div>
+
+            <div className="hidden lg:flex lg:gap-1">
+              <img src={like} alt="" />
+              <label className="text-[#23A6F0]" htmlFor="">1</label>
+            </div>
+
+          </div>
         </div>
       </div>
       {menu && (
@@ -58,7 +86,7 @@ export function HeaderNew(args) {
       overflow-hidden: Yalnızca bir slayt görünmesini sağlar, diğer slaytlar kaybolur.
       rounded-lg: Kenarları yuvarlar.
       shadow-lg: Kutunun etrafına gölge ekler. */}
-      <div className="relative w-full max-w-3xl mx-auto overflow-hidden shadow-lg">
+      <div className="relative w-full max-w-3xl lg:max-w-screen mx-auto overflow-hidden shadow-lg">
         {/* flex: Slaytları yatayda sıralar.
       transition-transform duration-500: 500ms süresince geçiş animasyonu ekler.
       style={{ transform: translateX(-${current * 100}%) }}: Bu satır, current state'ine bağlı olarak slaytları yatayda kaydırır. 
@@ -76,17 +104,28 @@ export function HeaderNew(args) {
             // 📦 Örnek: Resim slider’ı düşün → tüm slide’ların genişliği sabit kalsın diye kullanılır.
             //w-full ile parent ne kadar genişse, bu div de o kadar geniş olur.
             <div key={item.key} className="relative flex-shrink-0 w-full">
-              <img src={item.src} alt={item.alt} className="w-full h-full" />
-              <label className="absolute bottom-45 left-30 text-white text-2xl font-bold">
+              <picture >
+                <source srcSet={item.srcDesktop} media="(min-width: 1024px)" />
+                <img src={item.src} alt={item.alt} className="lg:w-screen h-full lg:object-fill" />
+              </picture>
+              {/* <img src={item.src} alt={item.alt} className="w-full h-full lg:w-screen lg:h-screen" /> */}
+              <label className="absolute bottom-45 left-30 text-white text-2xl font-bold 
+              lg:text-7xl lg:bottom-130 lg:left-0 lg:translate-x-[33rem] ">
                 {item.caption}
               </label>
-              <label className="absolute bottom-37 left-30 text-white text-2xl font-bold">
+              <label className="absolute bottom-37 left-30 text-white text-2xl font-bold 
+              lg:text-7xl lg:bottom-130 lg:left-0 lg:translate-x-[58rem]">
                 {item.caption2}
               </label>
-              <label className="absolute bottom-20 left-25 text-white w-1/2">
-                {item.text}
+              {/* <label className="lg:hidden absolute bottom-20 left-24 text-white w-1/2 ">
+                {window.innerWidth <= 1024 ? item.text : ""}
+              </label> */}
+              <label className="hidden absolute bottom-20 left-24 text-white w-1/2 
+              lg:text-3xl lg:bottom-105 lg:translate-x-[35.75rem] lg:left-0 lg:text-center lg:w-[34%]">
+                {window.innerWidth <= 1024 ? item.text : item.text + " just do not act that way."}
               </label>
-              <button className="absolute bottom-8 left-32 px-3 py-2 bg-blue-400 font-bold text-white">
+              <button className="absolute bottom-8 left-32 px-3 py-2 bg-blue-400 font-bold text-white
+              lg:bottom-80 lg:left-0 lg:translate-x-[50rem] lg:!px-14 lg:!py-4 lg:!rounded-[5px]">
                 Start Now
               </button>
             </div>

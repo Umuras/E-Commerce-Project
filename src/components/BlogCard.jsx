@@ -16,7 +16,7 @@ export function BlogCard(props) {
                         <button className="absolute bg-[#E74040] top-5 left-15 !rounded-[3px] px-2.5 text-white">NEW</button>
                     </div>
 
-                    <div className="flex flex-col  justify-center mt-4  ml-6 w-[75%] ">
+                    <div className="flex flex-col  justify-center mt-4  ml-14 w-[75%] ">
                         <div className="flex gap-4">
                             <label className="text-sm text-[#8EC2F2]" htmlFor="">Google</label>
                             <label className="text-sm text-[#737373]" htmlFor="">Trending</label>

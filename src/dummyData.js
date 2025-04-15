@@ -29,6 +29,12 @@ import thirdBlogPhoto from "./assets/thirdBlog.svg";
 import clockPhoto from "./assets/clock.svg";
 import graphPhoto from "./assets/graph.svg";
 import rightIconBluePhoto from "./assets/rightIconBlue.svg";
+import headerFood from "./assets/headerFood.jpg";
+import downArrowIcon from "./assets/downArrow.svg";
+import userIcon from "./assets/userIcon.svg";
+import searchIcon from "./assets/searchIcon.svg";
+import basketIcon from "./assets/basketIcon.svg";
+import likeIcon from "./assets/likeIcon.svg";
 
 
 
@@ -53,21 +59,28 @@ export const blogPhotoThird = thirdBlogPhoto;
 export const clockIcon = clockPhoto;
 export const graphIcon = graphPhoto;
 export const rightIconBlue = rightIconBluePhoto;
-
+export const headerFoodPhoto = headerFood;
+export const downArrow = downArrowIcon;
+export const user = userIcon;
+export const search = searchIcon;
+export const like = likeIcon;
+export const basket = basketIcon;
 
 export const items = [
   {
     src: foods,
+    srcDesktop: headerFoodPhoto,
     altText: "Slide 1",
-    caption: "GROSERIES",
+    caption: "GROCERIES",
     caption2: "DELIVERY",
     text: "We know how large objects will act, but things on a small scale.",
     key: 1,
   },
   {
     src: foods2,
+    srcDesktop: foods2,
     altText: "Slide 2",
-    caption: "GROSERIES",
+    caption: "GROCERIES",
     caption2: "DELIVERY",
     text: "We know how large objects will act, but things on a small scale.",
     key: 2,
