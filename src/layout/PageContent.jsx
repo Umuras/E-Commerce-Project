@@ -3,6 +3,7 @@ import { HomePage } from "../pages/HomePage";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 import { HeaderNew } from "./HeaderNew";
+import { FooterDesktop } from "./FooterDesktop";
 
 export function PageContent({ children }) {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 1024);
@@ -22,7 +23,7 @@ export function PageContent({ children }) {
       <HeaderNew isMobile={isMobile} />
       <main>{children}</main>
       <HomePage isMobile={isMobile} />
-      <Footer />
+      {isMobile ? <Footer /> : <FooterDesktop />}
     </>
   );
 }
