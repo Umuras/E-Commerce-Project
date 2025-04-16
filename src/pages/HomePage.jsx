@@ -28,11 +28,9 @@ import {
 import { foodItemsFirst } from "../dummyData";
 import { furniturePhoto } from "../dummyData";
 import { bestSellerProducts } from "../dummyData";
+import { SecondProductCardDesktop } from "../components/SecondProductCardDesktop";
 
 export function HomePage({ isMobile }) {
-
-
-
   const shopCardPhotos = [icecreamPhoto, appleProductPhoto, roastBeefPhoto];
   const productCardPhotos = [
     furniturePhoto,
@@ -46,11 +44,14 @@ export function HomePage({ isMobile }) {
       <ShopCard shopCardPhotos={shopCardPhotos} />
 
       <section className="w-full pb-70">
-        {isMobile ? <ProductCard photo={furniturePhoto} textPhoto={false} />
-          : <ProductCardDesktop photo={furniturePhoto} textPhoto={false} />}
-
+        {isMobile ? (
+          <ProductCard photo={furniturePhoto} textPhoto={false} />
+        ) : (
+          <ProductCardDesktop photo={furniturePhoto} textPhoto={false} />
+        )}
       </section>
-      <SecondProductCard />
+      {isMobile ? <SecondProductCard /> : <SecondProductCardDesktop />}
+
       <section className="w-full pb-70">
         <ProductCard photo={donutProductPhoto} textPhoto={true} />
       </section>
