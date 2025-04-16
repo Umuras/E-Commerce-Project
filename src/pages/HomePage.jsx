@@ -30,6 +30,7 @@ import { furniturePhoto } from "../dummyData";
 import { bestSellerProducts } from "../dummyData";
 import { SecondProductCardDesktop } from "../components/SecondProductCardDesktop";
 import { ProductCardDesktopReverse } from "../components/ProductCardDesktopReverse";
+import { BlogCardDesktop } from "../components/BlogCardDesktop";
 
 export function HomePage({ isMobile }) {
   const shopCardPhotos = [icecreamPhoto, appleProductPhoto, roastBeefPhoto];
@@ -65,12 +66,16 @@ export function HomePage({ isMobile }) {
       </section>
       <ThirdProductCard />
 
-      <section className="bg-[#FAFAFA] flex flex-col items-center justify-center w-full mt-10">
+      <section className="bg-[#FAFAFA] flex flex-col items-center justify-center w-full mt-10 lg:mb-30">
         <FourthProductCard />
         <Clients />
       </section>
 
-      <BlogCard blogCardItems={blogCardItems} />
+      {isMobile ? (
+        <BlogCard blogCardItems={blogCardItems} />
+      ) : (
+        <BlogCardDesktop blogCardItems={blogCardItems} />
+      )}
     </>
   );
 }
