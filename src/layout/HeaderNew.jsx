@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import { basket, items, like, search, slides, user } from "../dummyData";
 import {
@@ -16,7 +16,7 @@ import {
   CarouselCaption,
 } from "reactstrap";
 
-export function HeaderNew({ isMobile }) {
+export function HeaderNew({ isMobile, isHomePage }) {
   const [menu, setMenu] = useState(false);
   const [current, setCurrent] = useState(0);
 
@@ -165,82 +165,87 @@ export function HeaderNew({ isMobile }) {
       overflow-hidden: Yalnızca bir slayt görünmesini sağlar, diğer slaytlar kaybolur.
       rounded-lg: Kenarları yuvarlar.
       shadow-lg: Kutunun etrafına gölge ekler. */}
-      <div className="relative w-full max-w-3xl lg:max-w-screen mx-auto overflow-hidden shadow-lg">
-        {/* flex: Slaytları yatayda sıralar.
+      {isHomePage && (
+        <div className="relative w-full max-w-3xl lg:max-w-screen mx-auto overflow-hidden shadow-lg">
+          {/* flex: Slaytları yatayda sıralar.
       transition-transform duration-500: 500ms süresince geçiş animasyonu ekler.
       style={{ transform: translateX(-${current * 100}%) }}: Bu satır, current state'ine bağlı olarak slaytları yatayda kaydırır. 
       current değeri 0 ise, ilk slayt görünür.
       current değeri 1 ise, ikinci slayt görünür. Yani her current değerinde slaytlar 100% kayar.*/}
-        <div
-          className="flex transition-transform duration-500"
-          style={{ transform: `translateX(-${current * 100}%)` }}
-        >
-          {items.map((item) => (
-            //flex-shrink-0 için
-            //     Bu sınıf, bu div'in küçülmesini engeller (flexbox konteyner içindeyse).
-            //     Eğer parent’ı bir flex container ise, diğer elemanlar daralırken bu daralmaz.
-            //     Özellikle bir carousel veya yatay scroll alanında kullanılır.
-            // 📦 Örnek: Resim slider’ı düşün → tüm slide’ların genişliği sabit kalsın diye kullanılır.
-            //w-full ile parent ne kadar genişse, bu div de o kadar geniş olur.
-            <div key={item.key} className="relative flex-shrink-0 w-full">
-              <picture>
-                <source srcSet={item.srcDesktop} media="(min-width: 1024px)" />
-                <img
-                  src={item.src}
-                  alt={item.alt}
-                  className="lg:w-screen h-full lg:object-fill"
-                />
-              </picture>
-              {/* <img src={item.src} alt={item.alt} className="w-full h-full lg:w-screen lg:h-screen" /> */}
-              <label
-                className="absolute bottom-45 left-30 text-white text-2xl font-bold 
+          <div
+            className="flex transition-transform duration-500"
+            style={{ transform: `translateX(-${current * 100}%)` }}
+          >
+            {items.map((item) => (
+              //flex-shrink-0 için
+              //     Bu sınıf, bu div'in küçülmesini engeller (flexbox konteyner içindeyse).
+              //     Eğer parent’ı bir flex container ise, diğer elemanlar daralırken bu daralmaz.
+              //     Özellikle bir carousel veya yatay scroll alanında kullanılır.
+              // 📦 Örnek: Resim slider’ı düşün → tüm slide’ların genişliği sabit kalsın diye kullanılır.
+              //w-full ile parent ne kadar genişse, bu div de o kadar geniş olur.
+              <div key={item.key} className="relative flex-shrink-0 w-full">
+                <picture>
+                  <source
+                    srcSet={item.srcDesktop}
+                    media="(min-width: 1024px)"
+                  />
+                  <img
+                    src={item.src}
+                    alt={item.alt}
+                    className="lg:w-screen h-full lg:object-fill"
+                  />
+                </picture>
+                {/* <img src={item.src} alt={item.alt} className="w-full h-full lg:w-screen lg:h-screen" /> */}
+                <label
+                  className="absolute bottom-45 left-30 text-white text-2xl font-bold 
               lg:text-7xl lg:bottom-130 lg:left-0 lg:translate-x-[33rem] "
-              >
-                {item.caption}
-              </label>
-              <label
-                className="absolute bottom-37 left-30 text-white text-2xl font-bold 
+                >
+                  {item.caption}
+                </label>
+                <label
+                  className="absolute bottom-37 left-30 text-white text-2xl font-bold 
               lg:text-7xl lg:bottom-130 lg:left-0 lg:translate-x-[58rem]"
-              >
-                {item.caption2}
-              </label>
-              {/* <label className="lg:hidden absolute bottom-20 left-24 text-white w-1/2 ">
+                >
+                  {item.caption2}
+                </label>
+                {/* <label className="lg:hidden absolute bottom-20 left-24 text-white w-1/2 ">
                 {window.innerWidth <= 1024 ? item.text : ""}
               </label> */}
-              <label
-                className="hidden absolute bottom-20 left-24 text-white w-1/2 
+                <label
+                  className="hidden absolute bottom-20 left-24 text-white w-1/2 
               lg:text-3xl lg:bottom-105 lg:translate-x-[35.75rem] lg:left-0 lg:text-center lg:w-[34%]"
-              >
-                {isMobile
-                  ? item.text
-                  : item.text + " just do not act that way."}
-              </label>
-              <button
-                className="absolute bottom-8 left-32 px-3 py-2 bg-blue-400 font-bold text-white
+                >
+                  {isMobile
+                    ? item.text
+                    : item.text + " just do not act that way."}
+                </label>
+                <button
+                  className="absolute bottom-8 left-32 px-3 py-2 bg-blue-400 font-bold text-white
               lg:bottom-80 lg:left-0 lg:translate-x-[50rem] lg:!px-14 lg:!py-4 lg:!rounded-[5px]"
-              >
-                Start Now
-              </button>
-            </div>
-          ))}
-        </div>
+                >
+                  Start Now
+                </button>
+              </div>
+            ))}
+          </div>
 
-        {/* OK butonları */}
-        <button
-          onClick={prevSlide}
-          //top-1/2, parent elementin yüksekliğinin yarısı kadar yukarıdan konumlandırır.
-          //-translate-y-1/2 Elemanı kendi yüksekliğinin yarısı kadar yukarı kaydırır
-          className="absolute top-1/2 left-2 transform -translate-y-1/2 text-white p-2 rounded-full"
-        >
-          <ChevronLeft />
-        </button>
-        <button
-          onClick={nextSlide}
-          className="absolute top-1/2 right-2 transform -translate-y-1/2  text-white p-2 rounded-full"
-        >
-          <ChevronRight />
-        </button>
-      </div>
+          {/* OK butonları */}
+          <button
+            onClick={prevSlide}
+            //top-1/2, parent elementin yüksekliğinin yarısı kadar yukarıdan konumlandırır.
+            //-translate-y-1/2 Elemanı kendi yüksekliğinin yarısı kadar yukarı kaydırır
+            className="absolute top-1/2 left-2 transform -translate-y-1/2 text-white p-2 rounded-full"
+          >
+            <ChevronLeft />
+          </button>
+          <button
+            onClick={nextSlide}
+            className="absolute top-1/2 right-2 transform -translate-y-1/2  text-white p-2 rounded-full"
+          >
+            <ChevronRight />
+          </button>
+        </div>
+      )}
     </header>
   );
 }

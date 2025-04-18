@@ -1,33 +1,43 @@
 import { fsquare, tline } from "../dummyData";
 import { ProductCardForShopPage } from "./ProductCardForShopPage";
 
-export function ShopPageItemsArea() {
+export function ShopPageItemsArea({ isMobile }) {
   return (
     <section className="flex flex-col items-center justify-center pb-10 !bg-white  pt-10">
-      <h6 className="!text-[14px] !text-[#737373] !font-bold">
-        Showing all 12 results
-      </h6>
-      <div className="flex gap-3 mt-4 items-center justify-center">
-        <h6 className="!text-[14px] !text-[#737373] !font-bold">Views:</h6>
-        <img src={fsquare} alt="" />
-        <img src={tline} alt="" />
-      </div>
-      <div className="flex gap-3 mt-4 items-center justify-center mb-10">
-        {/* <select className="px-2 py-2.5 !rounded-lg bg-[#F9F9F9] text-center"> */}
-        <select className="px-2 py-2.5 !rounded-lg bg-[#F9F9F9] text-center shadow-sm border border-[#E0E0E0]">
-          <option value="popular">Populer</option>
-          <option value="all">Tumu</option>
-          <option value="hamburger">Hamburger</option>
-          <option value="meat">Et</option>
-          <option value="chicken">Tavuk</option>
-          <option value="desert">Tatli</option>
-        </select>
-        <button className="bg-[#23A6F0] text-white px-4 py-2.5 !rounded-lg">
-          Filter
-        </button>
+      <div className="lg:flex lg:gap-0 lg:items-center lg:justify-between lg:w-[65%] lg:mr-20">
+        <h6 className="!text-[14px] !text-[#737373] !font-bold lg:m-0">
+          Showing all 12 results
+        </h6>
+        <div className="flex gap-3 mt-4 lg:!mt-0  items-center justify-center">
+          <h6 className="!text-[14px] !text-[#737373] !font-bold lg:m-0 lg:p-0">
+            Views:
+          </h6>
+          <img className="lg:m-0 lg:p-0" src={fsquare} alt="" />
+          <img className="lg:m-0 lg:p-0" src={tline} alt="" />
+        </div>
+        <div className="flex gap-3 mt-4 items-center justify-center mb-10">
+          {/* <select className="px-2 py-2.5 !rounded-lg bg-[#F9F9F9] text-center"> */}
+          <select className="px-2 py-2.5 !rounded-lg bg-[#F9F9F9] text-center shadow-sm border border-[#E0E0E0]">
+            <option value="popular">Populer</option>
+            <option value="all">Tumu</option>
+            <option value="hamburger">Hamburger</option>
+            <option value="meat">Et</option>
+            <option value="chicken">Tavuk</option>
+            <option value="desert">Tatli</option>
+          </select>
+          <button className="bg-[#23A6F0] text-white px-4 py-2.5 !rounded-lg">
+            Filter
+          </button>
+        </div>
       </div>
 
-      <ProductCardForShopPage />
+      {isMobile ? (
+        <ProductCardForShopPage isMobile={isMobile} />
+      ) : (
+        Array.from({ length: 3 }, (_, index) => {
+          return <ProductCardForShopPage isMobile={isMobile} />;
+        })
+      )}
 
       <div className="flex my-10 justify-center shadow-sm rounded-lg">
         <a

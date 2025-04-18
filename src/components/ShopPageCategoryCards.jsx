@@ -3,7 +3,7 @@ import { shopCardItems } from "../dummyData";
 export function ShopPageCategoryCards() {
   return (
     <>
-      <div className="relative flex flex-col gap-2 items-center justify-center mb-10">
+      <div className="relative flex flex-col lg:flex-row gap-2 items-center justify-center mb-10">
         {shopCardItems.map((item, index) => {
           return (
             <section

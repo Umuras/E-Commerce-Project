@@ -7,16 +7,20 @@ import { Clients } from "../components/Clients";
 import { ShopPageHeader } from "../components/ShopPageHeader";
 import { ShopPageCategoryCards } from "../components/ShopPageCategoryCards";
 import { ShopPageItemsArea } from "../components/ShopPageItemsArea";
+import { useEffect } from "react";
 
-export function ShopPage() {
+export function ShopPage({ isMobile, setIsHomePage }) {
+  useEffect(() => {
+    setIsHomePage(false);
+  });
   return (
     <>
       <section className="flex flex-col bg-[#FAFAFA]">
         <ShopPageHeader />
 
-        <ShopPageCategoryCards />
+        <ShopPageCategoryCards isMobile={isMobile} />
 
-        <ShopPageItemsArea />
+        <ShopPageItemsArea isMobile={isMobile} />
 
         <section className="bg-[#FAFAFA] w-full flex items-center justify-center">
           <Clients />

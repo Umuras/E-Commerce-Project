@@ -10,6 +10,7 @@ import { ShopPage } from "../pages/ShopPage";
 
 export function PageContent({ children }) {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 1024);
+  const [isHomePage, setIsHomePage] = useState(true);
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 1024);
@@ -23,16 +24,16 @@ export function PageContent({ children }) {
   }, []);
   return (
     <>
-      <HeaderNew isMobile={isMobile} />
+      <HeaderNew isMobile={isMobile} isHomePage={isHomePage} />
 
       <main>{children}</main>
 
       <Switch>
         <Route exact path="/">
-          <HomePage isMobile={isMobile} />
+          <HomePage isMobile={isMobile} setIsHomePage={setIsHomePage} />
         </Route>
         <Route path="/shop">
-          <ShopPage isMobile={isMobile} />
+          <ShopPage isMobile={isMobile} setIsHomePage={setIsHomePage} />
         </Route>
       </Switch>
 

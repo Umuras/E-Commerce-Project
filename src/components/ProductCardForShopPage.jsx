@@ -4,12 +4,12 @@ import { Clients } from "./Clients";
 export function ProductCardForShopPage({ isMobile }) {
   return (
     <>
-      <section className="bg-white flex flex-col items-center">
+      <section className="bg-white flex flex-col lg:flex-row items-center">
         {shopPageItemsForMobile.map((item, index) => {
           return (
             <div key={index}>
-              <img src={item.src} alt="" />
-              <div className="flex flex-col items-center">
+              <img className="lg:w-[80%]" src={item.src} alt="" />
+              <div className="flex flex-col items-center lg:w-[80%]">
                 <h5 className="!font-bold !text-lg !text-[#252B42]">
                   {item.firstText}
                 </h5>
@@ -18,7 +18,7 @@ export function ProductCardForShopPage({ isMobile }) {
                 </h5>
               </div>
 
-              <div className="flex gap-2 items-center justify-center mt-2.5">
+              <div className="flex gap-2 items-center justify-center mt-2.5 lg:w-[80%]">
                 <h5 className="font-bold text-xl !text-[#BDBDBD]">
                   {item.firstPrice}
                 </h5>
