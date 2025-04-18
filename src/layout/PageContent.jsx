@@ -4,6 +4,9 @@ import { Footer } from "./Footer";
 import { Header } from "./Header";
 import { HeaderNew } from "./HeaderNew";
 import { FooterDesktop } from "./FooterDesktop";
+import { Route, Router } from "react-router-dom/cjs/react-router-dom";
+import { Switch } from "react-router-dom/cjs/react-router-dom";
+import { ShopPage } from "../pages/ShopPage";
 
 export function PageContent({ children }) {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 1024);
@@ -21,8 +24,18 @@ export function PageContent({ children }) {
   return (
     <>
       <HeaderNew isMobile={isMobile} />
+
       <main>{children}</main>
-      <HomePage isMobile={isMobile} />
+
+      <Switch>
+        <Route exact path="/">
+          <HomePage isMobile={isMobile} />
+        </Route>
+        <Route path="/shop">
+          <ShopPage isMobile={isMobile} />
+        </Route>
+      </Switch>
+
       {isMobile ? <Footer /> : <FooterDesktop />}
     </>
   );

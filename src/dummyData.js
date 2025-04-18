@@ -35,8 +35,13 @@ import userIcon from "./assets/userIcon.svg";
 import searchIcon from "./assets/searchIcon.svg";
 import basketIcon from "./assets/basketIcon.svg";
 import likeIcon from "./assets/likeIcon.svg";
-
-
+import pizzaPhoto from "./assets/pizza.jpg";
+import pancakePhoto from "./assets/pancake.jpg";
+import fishPhoto from "./assets/fish.jpg";
+import dndPhoto from "./assets/dnd.jpg";
+import steakPhoto from "./assets/steak.jpg";
+import fsquarePhoto from "./assets/fsquare.svg";
+import tlinePhoto from "./assets/tline.svg";
 
 export const slides = [foods, foods2];
 export const icecreamPhoto = icecream;
@@ -65,6 +70,13 @@ export const user = userIcon;
 export const search = searchIcon;
 export const like = likeIcon;
 export const basket = basketIcon;
+export const pizza = pizzaPhoto;
+export const pancake = pancakePhoto;
+export const fish = fishPhoto;
+export const dnd = dndPhoto;
+export const steak = steakPhoto;
+export const fsquare = fsquarePhoto;
+export const tline = tlinePhoto;
 
 export const items = [
   {
@@ -221,7 +233,7 @@ export const bestSellerProductsDesktop = [
     secondText: "English Department",
     firstPrice: "$16.48",
     secondPrice: "$6.48",
-  }
+  },
 ];
 
 export const brandIcons = [
@@ -273,4 +285,72 @@ export const blogCardItems = [
     graphIcon: graphIcon,
     rightIconBlue: rightIconBlue,
   },
-]
+];
+
+export const shopCardItems = [
+  {
+    src: pizzaPhoto,
+    altText: "Pizza Photo",
+    title: "FOODS",
+    info: "5 items",
+  },
+  {
+    src: pancakePhoto,
+    altText: "Pancake Photo",
+    title: "FOODS",
+    info: "5 items",
+  },
+  {
+    src: fishPhoto,
+    altText: "Fish Photo",
+    title: "FOODS",
+    info: "5 items",
+  },
+  {
+    src: dndPhoto,
+    altText: "IceCream Photo",
+    title: "FOODS",
+    info: "5 items",
+  },
+  {
+    src: steakPhoto,
+    altText: "Steak Photo",
+    title: "FOODS",
+    info: "5 items",
+  },
+];
+
+export const shopPageItemsForMobile = [
+  {
+    src: icecreamProductPhoto,
+    altText: "Ice Cream",
+    firstText: "Graphic Design",
+    secondText: "English Department",
+    firstPrice: "$16.48",
+    secondPrice: "$6.48",
+  },
+  {
+    src: appleProductPhoto,
+    altText: "Apples",
+    firstText: "Graphic Design",
+    secondText: "English Department",
+    firstPrice: "$16.48",
+    secondPrice: "$6.48",
+  },
+  {
+    src: roastBeefPhoto,
+    altText: "Roasted Beef",
+    firstText: "Graphic Design",
+    secondText: "English Department",
+    firstPrice: "$16.48",
+    secondPrice: "$6.48",
+  },
+  {
+    src: roastBeefPhoto,
+    altText: "Roasted Beef",
+    firstText: "Graphic Design",
+    secondText: "English Department",
+    firstPrice: "$16.48",
+    secondPrice: "$6.48",
+  },
+];
