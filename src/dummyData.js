@@ -48,7 +48,7 @@ import starsIcon from "./assets/stars.svg";
 import likecircle from "./assets/likecircle.svg";
 import basketcircle from "./assets/basketcircle.svg";
 import morecircle from "./assets/morecircle.svg";
-import cardItem from "./assets/cardItem.svg";
+import cardItem from "./assets/carditem.svg";
 
 export const slides = [foods, foods2];
 export const icecreamPhoto = icecream;
