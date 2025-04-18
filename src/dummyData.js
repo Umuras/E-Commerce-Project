@@ -42,6 +42,13 @@ import dndPhoto from "./assets/dnd.jpg";
 import steakPhoto from "./assets/steak.jpg";
 import fsquarePhoto from "./assets/fsquare.svg";
 import tlinePhoto from "./assets/tline.svg";
+import hamburgerProduct from "./assets/hmrproduct1.jpg";
+import hamburgerProduct2 from "./assets/hmrproduct2.jpg";
+import starsIcon from "./assets/stars.svg";
+import likecircle from "./assets/likecircle.svg";
+import basketcircle from "./assets/basketcircle.svg";
+import morecircle from "./assets/morecircle.svg";
+import cardItem from "./assets/cardItem.svg";
 
 export const slides = [foods, foods2];
 export const icecreamPhoto = icecream;
@@ -77,6 +84,11 @@ export const dnd = dndPhoto;
 export const steak = steakPhoto;
 export const fsquare = fsquarePhoto;
 export const tline = tlinePhoto;
+export const stars = starsIcon;
+export const likeCircle = likecircle;
+export const basketCircle = basketcircle;
+export const moreCircle = morecircle;
+export const cardItemPhoto = cardItem;
 
 export const items = [
   {
@@ -352,5 +364,16 @@ export const shopPageItemsForMobile = [
     secondText: "English Department",
     firstPrice: "$16.48",
     secondPrice: "$6.48",
+  },
+];
+
+export const productDetailsItems = [
+  {
+    src: hamburgerProduct,
+    alt: "Hamburger",
+  },
+  {
+    src: hamburgerProduct2,
+    alt: "Hamburger2",
   },
 ];

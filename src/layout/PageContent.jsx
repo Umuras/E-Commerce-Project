@@ -7,6 +7,7 @@ import { FooterDesktop } from "./FooterDesktop";
 import { Route, Router } from "react-router-dom/cjs/react-router-dom";
 import { Switch } from "react-router-dom/cjs/react-router-dom";
 import { ShopPage } from "../pages/ShopPage";
+import { ProductDetailPage } from "../pages/ProductDetailPage";
 
 export function PageContent({ children }) {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 1024);
@@ -34,6 +35,12 @@ export function PageContent({ children }) {
         </Route>
         <Route path="/shop">
           <ShopPage isMobile={isMobile} setIsHomePage={setIsHomePage} />
+        </Route>
+        <Route path="/product">
+          <ProductDetailPage
+            isMobile={isMobile}
+            setIsHomePage={setIsHomePage}
+          />
         </Route>
       </Switch>
 

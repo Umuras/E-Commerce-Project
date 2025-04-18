@@ -4,8 +4,8 @@ import { ProductCardForShopPage } from "./ProductCardForShopPage";
 export function ShopPageItemsArea({ isMobile }) {
   return (
     <section className="flex flex-col items-center justify-center pb-10 !bg-white  pt-10">
-      <div className="lg:flex lg:gap-0 lg:items-center lg:justify-between lg:w-[65%] lg:mr-20">
-        <h6 className="!text-[14px] !text-[#737373] !font-bold lg:m-0">
+      <div className="lg:flex lg:gap-0 lg:items-center lg:justify-between lg:w-[75.5%] lg:ml-20 lg:mr-20 ">
+        <h6 className="!text-[14px] !text-[#737373] !font-bold lg:m-0 text-center">
           Showing all 12 results
         </h6>
         <div className="flex gap-3 mt-4 lg:!mt-0  items-center justify-center">
