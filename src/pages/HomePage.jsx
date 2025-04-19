@@ -32,7 +32,11 @@ import { SecondProductCardDesktop } from "../components/SecondProductCardDesktop
 import { ProductCardDesktopReverse } from "../components/ProductCardDesktopReverse";
 import { BlogCardDesktop } from "../components/BlogCardDesktop";
 
-export function HomePage({ isMobile }) {
+export function HomePage({ isMobile, setIsContactpage }) {
+  useEffect(() => {
+    setIsContactpage(false);
+  });
+
   const shopCardPhotos = [icecreamPhoto, appleProductPhoto, roastBeefPhoto];
   const productCardPhotos = [
     furniturePhoto,

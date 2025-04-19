@@ -9,9 +9,10 @@ import { ShopPageCategoryCards } from "../components/ShopPageCategoryCards";
 import { ShopPageItemsArea } from "../components/ShopPageItemsArea";
 import { useEffect } from "react";
 
-export function ShopPage({ isMobile, setIsHomePage }) {
+export function ShopPage({ isMobile, setIsHomePage, setIsContactpage }) {
   useEffect(() => {
     setIsHomePage(false);
+    setIsContactpage(false);
   });
   return (
     <>

@@ -13,6 +13,7 @@ import { ContactPage } from "../pages/ContactPage";
 export function PageContent({ children }) {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 1024);
   const [isHomePage, setIsHomePage] = useState(true);
+  const [isContactpage, setIsContactpage] = useState(false);
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 1024);
@@ -26,16 +27,28 @@ export function PageContent({ children }) {
   }, []);
   return (
     <>
-      <HeaderNew isMobile={isMobile} isHomePage={isHomePage} />
+      <HeaderNew
+        isMobile={isMobile}
+        isHomePage={isHomePage}
+        isContactpage={isContactpage}
+      />
 
       <main>{children}</main>
 
       <Switch>
         <Route exact path="/">
-          <HomePage isMobile={isMobile} setIsHomePage={setIsHomePage} />
+          <HomePage
+            isMobile={isMobile}
+            setIsHomePage={setIsHomePage}
+            setIsContactpage={setIsContactpage}
+          />
         </Route>
         <Route path="/shop">
-          <ShopPage isMobile={isMobile} setIsHomePage={setIsHomePage} />
+          <ShopPage
+            isMobile={isMobile}
+            setIsHomePage={setIsHomePage}
+            setIsContactpage={setIsContactpage}
+          />
         </Route>
         <Route path="/product">
           <ProductDetailPage
@@ -44,7 +57,11 @@ export function PageContent({ children }) {
           />
         </Route>
         <Route path="/contact">
-          <ContactPage isMobile={isMobile} setIsHomePage={setIsHomePage} />
+          <ContactPage
+            isMobile={isMobile}
+            setIsHomePage={setIsHomePage}
+            setIsContactpage={setIsContactpage}
+          />
         </Route>
       </Switch>
 

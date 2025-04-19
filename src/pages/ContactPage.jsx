@@ -6,9 +6,10 @@ import {
   contactPhotoImage,
 } from "../dummyData";
 
-export function ContactPage({ isMobile, setIsHomePage }) {
+export function ContactPage({ isMobile, setIsHomePage, setIsContactpage }) {
   useEffect(() => {
     setIsHomePage(false);
+    setIsContactpage(true);
   });
   return (
     <>

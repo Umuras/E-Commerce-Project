@@ -7,6 +7,7 @@ import {
   MenuIcon,
   ChevronLeft,
   ChevronRight,
+  MoveRight,
 } from "lucide-react";
 import {
   Carousel,
@@ -16,7 +17,12 @@ import {
   CarouselCaption,
 } from "reactstrap";
 
-export function HeaderNew({ isMobile, isHomePage }) {
+export function HeaderNew({
+  isMobile,
+  isHomePage,
+  isContactpage,
+  setIsContactPage,
+}) {
   const [menu, setMenu] = useState(false);
   const [current, setCurrent] = useState(0);
 
@@ -72,31 +78,44 @@ export function HeaderNew({ isMobile, isHomePage }) {
           <ShoppingCart className="lg:hidden" />
           <MenuIcon className="lg:hidden" onClick={() => setMenu(!menu)} />
           <div className="hidden lg:flex lg:gap-1 lg:items-center">
-            <img className="hidden lg:block lg:w-5" src={user} alt="" />
+            {!isContactpage && (
+              <img className="hidden lg:block lg:w-5" src={user} alt="" />
+            )}
             <a className="m-0 !no-underline !font-bold !text-[#23A6F0]" href="">
               Login
             </a>
-            <span>/</span>
-            <a className="!no-underline !font-bold !text-[#23A6F0]" href="">
-              Register
-            </a>
+            {isContactpage ? (
+              <button className="!ml-10 w-[214px] !px-4 !py-4 !rounded-[5px] !text-white bg-[#23A6F0] !text-[14px] flex gap-4 items-center justify-center">
+                Become a member
+                <MoveRight className="w-4 !font-bold" />
+              </button>
+            ) : (
+              <div>
+                <span>/</span>
+                <a className="!no-underline !font-bold !text-[#23A6F0]" href="">
+                  Register
+                </a>
+              </div>
+            )}
           </div>
-          <div className="hidden lg:flex lg:gap-3 lg:items-center lg:justify-center">
-            <img src={search} alt="" />
-            <div className="hidden lg:flex lg:gap-1">
-              <img src={basket} alt="" />
-              <label className="text-[#23A6F0]" htmlFor="">
-                1
-              </label>
-            </div>
+          {!isContactpage && (
+            <div className="hidden lg:flex lg:gap-3 lg:items-center lg:justify-center">
+              <img src={search} alt="" />
+              <div className="hidden lg:flex lg:gap-1">
+                <img src={basket} alt="" />
+                <label className="text-[#23A6F0]" htmlFor="">
+                  1
+                </label>
+              </div>
 
-            <div className="hidden lg:flex lg:gap-1">
-              <img src={like} alt="" />
-              <label className="text-[#23A6F0]" htmlFor="">
-                1
-              </label>
+              <div className="hidden lg:flex lg:gap-1">
+                <img src={like} alt="" />
+                <label className="text-[#23A6F0]" htmlFor="">
+                  1
+                </label>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
       {menu && (
