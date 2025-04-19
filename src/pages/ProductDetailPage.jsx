@@ -32,7 +32,7 @@ export function ProductDetailPage({ setIsHomePage, isMobile }) {
 
   return (
     <section className="bg-[#FAFAFA] flex flex-col ">
-      <div className="flex items-center justify-center lg:justify-start lg:ml-32 gap-2 mt-4">
+      <div className="flex items-center justify-center lg:justify-start lg:ml-60 gap-2 mt-4">
         <a
           className="font-bold text-center !text-[#252B42] !no-underline cursor-pointer"
           href="/home"
@@ -50,7 +50,7 @@ export function ProductDetailPage({ setIsHomePage, isMobile }) {
 
       <section className="lg:flex gap-4">
         <div className="lg:flex lg:flex-col">
-          <div className="relative lg:max-w-screen mx-auto lg:!ml-32 lg:w-[506px] lg:h-[405px] lg:!mx-0 overflow-hidden shadow-lg w-[348px] h-[277px] mt-24 lg:!mt-8 mb-10">
+          <div className="relative lg:max-w-screen mx-auto lg:!ml-60 lg:w-[506px] lg:h-[405px] lg:!mx-0 overflow-hidden shadow-lg w-[348px] h-[277px] mt-24 lg:!mt-8 mb-10">
             <div
               className="flex transition-transform duration-500"
               style={{ transform: `translateX(-${current * 100}%)` }}
@@ -86,7 +86,7 @@ export function ProductDetailPage({ setIsHomePage, isMobile }) {
               <ChevronRight />
             </button>
           </div>
-          <div className="flex gap-4 items-center justify-start ml-4 mb-10 lg:!ml-32">
+          <div className="flex gap-4 items-center justify-start ml-4 mb-10 lg:!ml-60">
             {productDetailsItems.map((item, index) => {
               return (
                 <section key={index}>
@@ -162,7 +162,7 @@ export function ProductDetailPage({ setIsHomePage, isMobile }) {
               </a>
             </li>
           </nav>
-          <div className="flex flex-col lg:flex-row lg:items-center lg:gap-10 lg:justify-center lg:mx-50  lg:w-[80%] items-start justify-start mt-4">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:gap-10 lg:justify-center lg:mx-0  lg:w-[80%] items-start justify-start mt-4">
             <img
               className="my-5 lg:!mt-18 lg:w-[400px]"
               src={cardItemPhoto}

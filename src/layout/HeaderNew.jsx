@@ -30,7 +30,7 @@ export function HeaderNew({ isMobile, isHomePage }) {
 
   return (
     <header>
-      <div className="flex justify-between mx-8 mt-8 items-center lg:mx-32  mb-7">
+      <div className="flex justify-between mx-8 mt-8 items-center lg:mx-60  mb-7">
         <label className="text-xl font-bold">Bandage</label>
         <nav className="hidden lg:flex gap-6 lg:items-center lg:justify-center ">
           <li className="list-none">
