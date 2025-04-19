@@ -8,6 +8,7 @@ import { Route, Router } from "react-router-dom/cjs/react-router-dom";
 import { Switch } from "react-router-dom/cjs/react-router-dom";
 import { ShopPage } from "../pages/ShopPage";
 import { ProductDetailPage } from "../pages/ProductDetailPage";
+import { ContactPage } from "../pages/ContactPage";
 
 export function PageContent({ children }) {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 1024);
@@ -41,6 +42,9 @@ export function PageContent({ children }) {
             isMobile={isMobile}
             setIsHomePage={setIsHomePage}
           />
+        </Route>
+        <Route path="/contact">
+          <ContactPage isMobile={isMobile} setIsHomePage={setIsHomePage} />
         </Route>
       </Switch>
 

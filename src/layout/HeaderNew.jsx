@@ -54,7 +54,10 @@ export function HeaderNew({ isMobile, isHomePage }) {
             </a>
           </li>
           <li className="list-none">
-            <a className="!text-[#737373] !no-underline !font-bold" href="">
+            <a
+              className="!text-[#737373] !no-underline !font-bold"
+              href="/contact"
+            >
               Contact
             </a>
           </li>
@@ -116,7 +119,10 @@ export function HeaderNew({ isMobile, isHomePage }) {
           <a className="font-montserrat text-xl !no-underline !text-[#737373]">
             Blog
           </a>
-          <a className="font-montserrat text-xl !no-underline !text-[#737373]">
+          <a
+            className="font-montserrat text-xl !no-underline !text-[#737373]"
+            href="/contact"
+          >
             Contact
           </a>
           <a className="font-montserrat text-xl !no-underline !text-[#737373]">

@@ -49,6 +49,15 @@ import likecircle from "./assets/likecircle.svg";
 import basketcircle from "./assets/basketcircle.svg";
 import morecircle from "./assets/morecircle.svg";
 import cardItem from "./assets/carditem.svg";
+import linkendinblack from "./assets/linkedinblack.svg";
+import facebookblack from "./assets/facebookblack.svg";
+import twitterblack from "./assets/twitterblack.svg";
+import instagramblack from "./assets/instagramblack.svg";
+import contactPhoto from "./assets/contactphoto.svg";
+import locationblue from "./assets/locationblue.svg";
+import navigationblue from "./assets/navigationblue.svg";
+import phoneblue from "./assets/phoneblue.svg";
+import circulararrow from "./assets/circulararrow.svg";
 
 export const slides = [foods, foods2];
 export const icecreamPhoto = icecream;
@@ -89,6 +98,8 @@ export const likeCircle = likecircle;
 export const basketCircle = basketcircle;
 export const moreCircle = morecircle;
 export const cardItemPhoto = cardItem;
+export const contactPhotoImage = contactPhoto;
+export const circulararrowIcon = circulararrow;
 
 export const items = [
   {
@@ -375,5 +386,57 @@ export const productDetailsItems = [
   {
     src: hamburgerProduct2,
     alt: "Hamburger2",
+  },
+];
+
+export const contactLogos = [
+  {
+    src: twitterblack,
+    alt: "Twitter",
+  },
+  {
+    src: facebookblack,
+    alt: "Facebook",
+  },
+  {
+    src: instagramblack,
+    alt: "Instagram",
+  },
+  {
+    src: linkendinblack,
+    alt: "LinkedIn",
+  },
+];
+
+export const contactCardInfo = [
+  {
+    src: phoneblue,
+    alt: "Phone",
+    email1: "georgia.young@example.com",
+    email2: "georgia.young@ple.com",
+    text: "Get Support",
+    buttonText: "Submit Request",
+    bg: "bg-white",
+    textColor: "!text-[#252B42]",
+  },
+  {
+    src: locationblue,
+    alt: "Location",
+    email1: "georgia.young@example.com",
+    email2: "georgia.young@ple.com",
+    text: "Get Support",
+    buttonText: "Submit Request",
+    bg: "bg-[#252B42]",
+    textColor: "text-white",
+  },
+  {
+    src: navigationblue,
+    alt: "Navigation",
+    email1: "georgia.young@example.com",
+    email2: "georgia.young@ple.com",
+    text: "Get Support",
+    buttonText: "Submit Request",
+    bg: "bg-white",
+    textColor: "!text-[#252B42]",
   },
 ];
