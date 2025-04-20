@@ -1,0 +1,106 @@
+import { useEffect } from "react";
+import {
+  facebookbottomteamIcon,
+  instragrambottomteamIcon,
+  linkedinteamIcon,
+  redbgwomanPhoto,
+  rightIconBlue,
+  teamMembers,
+  teamPagePhotos,
+  twitterbottomteamIcon,
+} from "../dummyData";
+
+export function TeamPage({ setIsHomePage }) {
+  useEffect(() => {
+    setIsHomePage(false);
+  });
+  return (
+    <section className="flex flex-col">
+      <div className="flex flex-col bg-[#F6F6F6] items-center">
+        <h5 className="!text-[16px] !font-bold !text-[#737373] my-4">
+          WHAT WE DO
+        </h5>
+        <h2 className="!text-[40px] !font-bold !text-[#252B42] !text-center w-[80%]">
+          Innovation tailored for you
+        </h2>
+        <div className="flex gap-4 my-4">
+          <a
+            className="font-bold text-center !text-[#252B42] !no-underline"
+            href="/home"
+          >
+            Home
+          </a>
+          <img className="w-1.5 !text-[#737373]" src={rightIconBlue} alt="" />
+          <a
+            className=" font-bold text-center !text-[#737373] !no-underline"
+            href="/team"
+          >
+            Team
+          </a>
+        </div>
+      </div>
+
+      <div className="flex flex-col">
+        <img src={redbgwomanPhoto} alt="" />
+        <div className="flex flex-wrap ">
+          {teamPagePhotos.map((item, index) => {
+            return (
+              <div
+                className="w-1/2 flex justify-center px-0.5 py-1.5"
+                key={index}
+              >
+                <img className="w-[204px] " src={item.src} alt={item.altText} />
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      <div className="flex flex-col items-center justify-center">
+        <h2 className="!text-[40px] !font-bold !text-[#252B42] !text-center w-[70%] py-20">
+          Meet Our Team
+        </h2>
+        {teamMembers.map((item, index) => {
+          return (
+            <section key={index}>
+              <img className="w-[18rem] h-[14rem]" src={item.src} alt="" />
+              <div className="flex flex-col gap-4 mt-7 mb-14">
+                <h5 className="!text-[16px] !font-bold !text-[#252B42] text-center">
+                  {item.title}
+                </h5>
+                <h6 className="text-center !text-[14px] !font-bold !text-[#737373]">
+                  {item.profession}
+                </h6>
+                <div className="flex gap-4 items-center justify-center">
+                  <img src={item.facebooklogo} alt="" />
+                  <img src={item.instagramlogo} alt="" />
+                  <img src={item.twitterlogo} alt="" />
+                </div>
+              </div>
+            </section>
+          );
+        })}
+      </div>
+
+      <div className="flex flex-col items-center gap-4 mt-20">
+        <h2 className="!text-[2.5rem] !font-bold text-center !text-[#252B42] w-[100%]">
+          Start your <br />
+          14 days free trial
+        </h2>
+        <p className="!text-[14px] !font-bold !text-[#737373] text-center w-[80%]">
+          Met minim Mollie non desert Alamo est sit cliquey dolor do met sent.
+          RELIT official consequent.
+        </p>
+        <button className="text-white bg-[#23A6F0] px-10 py-3.5 !rounded-[5px] !font-bold">
+          Try it free now
+        </button>
+        <div className="flex gap-[36px] mt-4 mb-20">
+          <img src={twitterbottomteamIcon} alt="" />
+          <img src={facebookbottomteamIcon} alt="" />
+          <img src={instragrambottomteamIcon} alt="" />
+          <img src={linkedinteamIcon} alt="" />
+        </div>
+      </div>
+    </section>
+  );
+}

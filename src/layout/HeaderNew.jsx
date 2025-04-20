@@ -68,8 +68,11 @@ export function HeaderNew({
             </a>
           </li>
           <li className="list-none">
-            <a className="!text-[#737373] !no-underline !font-bold" href="">
-              Pages
+            <a
+              className="!text-[#737373] !no-underline !font-bold"
+              href="/team"
+            >
+              Team
             </a>
           </li>
         </nav>
@@ -144,8 +147,11 @@ export function HeaderNew({
           >
             Contact
           </a>
-          <a className="font-montserrat text-xl !no-underline !text-[#737373]">
-            Pages
+          <a
+            className="font-montserrat text-xl !no-underline !text-[#737373]"
+            href="/team"
+          >
+            Team
           </a>
 
           <div className=" flex gap-1 items-center">

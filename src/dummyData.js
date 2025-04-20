@@ -58,6 +58,26 @@ import locationblue from "./assets/locationblue.svg";
 import navigationblue from "./assets/navigationblue.svg";
 import phoneblue from "./assets/phoneblue.svg";
 import circulararrow from "./assets/circulararrow.svg";
+import redbgwoman from "./assets/redbgwoman.svg";
+import lightbluecoatwoman from "./assets/lightbluecoatwoman.svg";
+import darkbluecoatwoman from "./assets/darkbluecoatwoman.svg";
+import blackbagwoman from "./assets/blackbagwoman.svg";
+import blackshirtwoman from "./assets/blackshirtwoman.svg";
+import teammember1 from "./assets/teammember.png";
+import teammember2 from "./assets/teammember2.png";
+import teammember3 from "./assets/teammember3.png";
+import teammember4 from "./assets/teammember5.png";
+import teammember5 from "./assets/teammember6.png";
+import teammember6 from "./assets/teammember7.png";
+import teammember7 from "./assets/teammember8.png";
+import projectmanager from "./assets/projectmanager.png";
+import twitterteam from "./assets/twitterteam.png";
+import facebookteam from "./assets/facebookteam.png";
+import instragramteam from "./assets/instagramteam.png";
+import linkedinteam from "./assets/linkedinteam.png";
+import instragrambottomteam from "./assets/instragrambottomteam.png";
+import facebookbottomteam from "./assets/facebookbottomteam.png";
+import twitterbottomteam from "./assets/twitterbottomteam.png";
 
 export const slides = [foods, foods2];
 export const icecreamPhoto = icecream;
@@ -100,6 +120,11 @@ export const moreCircle = morecircle;
 export const cardItemPhoto = cardItem;
 export const contactPhotoImage = contactPhoto;
 export const circulararrowIcon = circulararrow;
+export const redbgwomanPhoto = redbgwoman;
+export const linkedinteamIcon = linkedinteam;
+export const instragrambottomteamIcon = instragrambottomteam;
+export const facebookbottomteamIcon = facebookbottomteam;
+export const twitterbottomteamIcon = twitterbottomteam;
 
 export const items = [
   {
@@ -438,5 +463,91 @@ export const contactCardInfo = [
     buttonText: "Submit Request",
     bg: "bg-white",
     textColor: "!text-[#252B42]",
+  },
+];
+
+export const teamPagePhotos = [
+  {
+    src: blackbagwoman,
+    altText: "Photo",
+  },
+  {
+    src: blackshirtwoman,
+    altText: "Photo",
+  },
+  {
+    src: lightbluecoatwoman,
+    altText: "Photo",
+  },
+  {
+    src: darkbluecoatwoman,
+    altText: "Photo",
+  },
+];
+
+export const teamMembers = [
+  {
+    src: projectmanager,
+    title: "Emre Şahiner",
+    profession: "Project Manager",
+    facebooklogo: facebookteam,
+    instagramlogo: instragramteam,
+    twitterlogo: twitterteam,
+  },
+  {
+    src: teammember1,
+    title: "Ali Umur Kucur",
+    profession: "Full-Stack Developer",
+    facebooklogo: facebookteam,
+    instagramlogo: instragramteam,
+    twitterlogo: twitterteam,
+  },
+  {
+    src: teammember2,
+    title: "Username",
+    profession: "Profession",
+    facebooklogo: facebookteam,
+    instagramlogo: instragramteam,
+    twitterlogo: twitterteam,
+  },
+  {
+    src: teammember3,
+    title: "Username",
+    profession: "Profession",
+    facebooklogo: facebookteam,
+    instagramlogo: instragramteam,
+    twitterlogo: twitterteam,
+  },
+  {
+    src: teammember4,
+    title: "Username",
+    profession: "Profession",
+    facebooklogo: facebookteam,
+    instagramlogo: instragramteam,
+    twitterlogo: twitterteam,
+  },
+  {
+    src: teammember5,
+    title: "Username",
+    profession: "Profession",
+    facebooklogo: facebookteam,
+    instagramlogo: instragramteam,
+    twitterlogo: twitterteam,
+  },
+  {
+    src: teammember6,
+    title: "Username",
+    profession: "Profession",
+    facebooklogo: facebookteam,
+    instagramlogo: instragramteam,
+    twitterlogo: twitterteam,
+  },
+  {
+    src: teammember7,
+    title: "Username",
+    profession: "Profession",
+    facebooklogo: facebookteam,
+    instagramlogo: instragramteam,
+    twitterlogo: twitterteam,
   },
 ];
