@@ -79,6 +79,8 @@ import instragrambottomteam from "./assets/instragrambottomteam.png";
 import facebookbottomteam from "./assets/facebookbottomteam.png";
 import twitterbottomteam from "./assets/twitterbottomteam.png";
 import redbgwomantest from "./assets/redbgWomanTest.png";
+import aboutusphoto from "./assets/aboutusimg.png";
+import videocardphoto from "./assets/videocard.png";
 
 export const slides = [foods, foods2];
 export const icecreamPhoto = icecream;
@@ -127,6 +129,8 @@ export const instragrambottomteamIcon = instragrambottomteam;
 export const facebookbottomteamIcon = facebookbottomteam;
 export const twitterbottomteamIcon = twitterbottomteam;
 export const redbgwomantestphoto = redbgwomantest;
+export const aboutus = aboutusphoto;
+export const videocard = videocardphoto;
 
 export const items = [
   {
