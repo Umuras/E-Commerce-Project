@@ -78,6 +78,7 @@ import linkedinteam from "./assets/linkedinteam.png";
 import instragrambottomteam from "./assets/instragrambottomteam.png";
 import facebookbottomteam from "./assets/facebookbottomteam.png";
 import twitterbottomteam from "./assets/twitterbottomteam.png";
+import redbgwomantest from "./assets/redbgWomanTest.png";
 
 export const slides = [foods, foods2];
 export const icecreamPhoto = icecream;
@@ -125,6 +126,7 @@ export const linkedinteamIcon = linkedinteam;
 export const instragrambottomteamIcon = instragrambottomteam;
 export const facebookbottomteamIcon = facebookbottomteam;
 export const twitterbottomteamIcon = twitterbottomteam;
+export const redbgwomantestphoto = redbgwomantest;
 
 export const items = [
   {
@@ -544,6 +546,14 @@ export const teamMembers = [
   },
   {
     src: teammember7,
+    title: "Username",
+    profession: "Profession",
+    facebooklogo: facebookteam,
+    instagramlogo: instragramteam,
+    twitterlogo: twitterteam,
+  },
+  {
+    src: teammember2,
     title: "Username",
     profession: "Profession",
     facebooklogo: facebookteam,
