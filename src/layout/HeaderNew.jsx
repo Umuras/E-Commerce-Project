@@ -58,7 +58,10 @@ export function HeaderNew({
             </a>
           </li>
           <li className="list-none">
-            <a className="!text-[#737373] !no-underline !font-bold" href="">
+            <a
+              className="!text-[#737373] !no-underline !font-bold"
+              href="/blog"
+            >
               Blog
             </a>
           </li>
@@ -152,7 +155,10 @@ export function HeaderNew({
           >
             About
           </a>
-          <a className="font-montserrat text-xl !no-underline !text-[#737373]">
+          <a
+            className="font-montserrat text-xl !no-underline !text-[#737373]"
+            href="/blog"
+          >
             Blog
           </a>
           <a

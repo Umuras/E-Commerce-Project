@@ -363,61 +363,14 @@ export function PricingPage({ setIsHomePage, setIsContactpage }) {
               <div className="lg:flex lg:flex-col lg:w-[100%] ml-8">
                 <h6 className="!text-[14px] !text-[#737373] !font-semibold mb-4 w-[90%] !leading-5">
                   <span className="block">
-                    Met minim Mollie non desert Alamo est sit cliquey
+                    Met minim Mollie non desert Alamo est sit cliquey dolor
                   </span>
                   <span className="block">
-                    dolor do met sent. RELIT official consequent door ENIM
+                    do met sent. RELIT official consequent door ENIM RELIT
+                    Mollie.
                   </span>
                   <span className="block">
-                    RELIT Mollie. Excitation venial consequent sent nostrum met.{" "}
-                  </span>
-                </h6>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex justify-between w-full">
-            <div className="lg:flex lg:flex-col lg:w-[50%] hidden">
-              <div className="lg:flex gap-4 lg:items-center mt-10">
-                <img className="text-[#737373]" src={rightIconBlue} alt="" />
-                <h5 className="!font-bold !text-[16px] !text-[#252B42] ">
-                  the quick fox jumps over the lazy dog
-                </h5>
-              </div>
-
-              <div className="lg:flex lg:flex-col lg:w-[100%] ml-8">
-                <h6 className="!text-[14px] !text-[#737373] !font-semibold mb-4 w-[90%] !leading-5">
-                  <span className="block">
-                    Met minim Mollie non desert Alamo est sit cliquey
-                  </span>
-                  <span className="block">
-                    dolor do met sent. RELIT official consequent door ENIM
-                  </span>
-                  <span className="block">
-                    RELIT Mollie. Excitation venial consequent sent{" "}
-                  </span>
-                  <span className="block">nostrum met.</span>
-                </h6>
-              </div>
-            </div>
-            <div className="lg:flex lg:flex-col lg:w-[50%] hidden">
-              <div className="lg:flex gap-4 lg:items-center mt-10">
-                <img className="text-[#737373]" src={rightIconBlue} alt="" />
-                <h5 className="!font-bold !text-[16px] !text-[#252B42] ">
-                  the quick fox jumps over the lazy dog
-                </h5>
-              </div>
-
-              <div className="lg:flex lg:flex-col lg:w-[100%] ml-8">
-                <h6 className="!text-[14px] !text-[#737373] !font-semibold mb-4 w-[90%] !leading-5">
-                  <span className="block">
-                    Met minim Mollie non desert Alamo est sit cliquey
-                  </span>
-                  <span className="block">
-                    dolor do met sent. RELIT official consequent door ENIM
-                  </span>
-                  <span className="block">
-                    RELIT Mollie. Excitation venial consequent sent nostrum met.{" "}
+                    Excitation venial consequent sent nostrum met.{" "}
                   </span>
                 </h6>
               </div>
@@ -459,13 +412,63 @@ export function PricingPage({ setIsHomePage, setIsContactpage }) {
               <div className="lg:flex lg:flex-col lg:w-[100%] ml-8">
                 <h6 className="!text-[14px] !text-[#737373] !font-semibold mb-4 w-[90%] !leading-5">
                   <span className="block">
+                    Met minim Mollie non desert Alamo est sit cliquey dolor
+                  </span>
+                  <span className="block">
+                    do met sent. RELIT official consequent door ENIM RELIT
+                    Mollie.
+                  </span>
+                  <span className="block">
+                    Excitation venial consequent sent nostrum met.{" "}
+                  </span>
+                </h6>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex justify-between w-full">
+            <div className="lg:flex lg:flex-col lg:w-[50%] hidden">
+              <div className="lg:flex gap-4 lg:items-center mt-10">
+                <img className="text-[#737373]" src={rightIconBlue} alt="" />
+                <h5 className="!font-bold !text-[16px] !text-[#252B42] ">
+                  the quick fox jumps over the lazy dog
+                </h5>
+              </div>
+
+              <div className="lg:flex lg:flex-col lg:w-[100%] ml-8">
+                <h6 className="!text-[14px] !text-[#737373] !font-semibold mb-4 w-[90%] !leading-5">
+                  <span className="block">
                     Met minim Mollie non desert Alamo est sit cliquey
                   </span>
                   <span className="block">
                     dolor do met sent. RELIT official consequent door ENIM
                   </span>
                   <span className="block">
-                    RELIT Mollie. Excitation venial consequent sent nostrum met.{" "}
+                    RELIT Mollie. Excitation venial consequent sent{" "}
+                  </span>
+                  <span className="block">nostrum met.</span>
+                </h6>
+              </div>
+            </div>
+            <div className="lg:flex lg:flex-col lg:w-[50%] hidden">
+              <div className="lg:flex gap-4 lg:items-center mt-10">
+                <img className="text-[#737373]" src={rightIconBlue} alt="" />
+                <h5 className="!font-bold !text-[16px] !text-[#252B42] ">
+                  the quick fox jumps over the lazy dog
+                </h5>
+              </div>
+
+              <div className="lg:flex lg:flex-col lg:w-[100%] ml-8">
+                <h6 className="!text-[14px] !text-[#737373] !font-semibold mb-4 w-[90%] !leading-5">
+                  <span className="block">
+                    Met minim Mollie non desert Alamo est sit cliquey dolor
+                  </span>
+                  <span className="block">
+                    do met sent. RELIT official consequent door ENIM RELIT
+                    Mollie.
+                  </span>
+                  <span className="block">
+                    Excitation venial consequent sent nostrum met.{" "}
                   </span>
                 </h6>
               </div>

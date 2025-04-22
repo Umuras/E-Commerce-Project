@@ -139,6 +139,7 @@ export const aboutusbottom = aboutusbottomimg;
 export const checkinput = checkInput;
 export const circlegrayIcon = circlegray;
 export const circlegreenIcon = circlegreen;
+export const hamburgerProductPhoto = hamburgerProduct;
 
 export const items = [
   {
