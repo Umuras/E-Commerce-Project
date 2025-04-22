@@ -4,9 +4,16 @@ import {
   graphIcon,
   rightIconBlue,
 } from "../dummyData";
+import { useHistory } from "react-router-dom/cjs/react-router-dom";
 
 export function BlogCardDesktop(props) {
   const { blogCardItems } = props;
+
+  const history = useHistory();
+
+  const moveToBlogPage = () => {
+    history.push("/blog");
+  };
 
   return (
     <section className="bg-white flex flex-col items-center justify-center pb-10">
@@ -24,6 +31,7 @@ export function BlogCardDesktop(props) {
             <section
               className="w-[348px] h-[606px] shadow cursor-pointer"
               key={index}
+              onClick={moveToBlogPage}
             >
               <div className="relative flex flex-col">
                 <img className="" src={item.src} alt="" />
