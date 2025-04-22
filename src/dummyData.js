@@ -81,6 +81,7 @@ import twitterbottomteam from "./assets/twitterbottomteam.png";
 import redbgwomantest from "./assets/redbgWomanTest.png";
 import aboutusphoto from "./assets/aboutusimg.png";
 import videocardphoto from "./assets/videocard.png";
+import aboutusbottomimg from "./assets/aboutusbottomimg.png";
 
 export const slides = [foods, foods2];
 export const icecreamPhoto = icecream;
@@ -131,6 +132,7 @@ export const twitterbottomteamIcon = twitterbottomteam;
 export const redbgwomantestphoto = redbgwomantest;
 export const aboutus = aboutusphoto;
 export const videocard = videocardphoto;
+export const aboutusbottom = aboutusbottomimg;
 
 export const items = [
   {

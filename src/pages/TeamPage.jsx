@@ -11,9 +11,10 @@ import {
   twitterbottomteamIcon,
 } from "../dummyData";
 
-export function TeamPage({ setIsHomePage }) {
+export function TeamPage({ setIsHomePage, setIsContactpage }) {
   useEffect(() => {
     setIsHomePage(false);
+    setIsContactpage(true);
   });
   return (
     <section className="flex flex-col">
