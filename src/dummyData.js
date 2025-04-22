@@ -82,6 +82,9 @@ import redbgwomantest from "./assets/redbgWomanTest.png";
 import aboutusphoto from "./assets/aboutusimg.png";
 import videocardphoto from "./assets/videocard.png";
 import aboutusbottomimg from "./assets/aboutusbottomimg.png";
+import checkInput from "./assets/checkinput.png";
+import circlegreen from "./assets/circleyellow.png";
+import circlegray from "./assets/circlegray.png";
 
 export const slides = [foods, foods2];
 export const icecreamPhoto = icecream;
@@ -133,6 +136,9 @@ export const redbgwomantestphoto = redbgwomantest;
 export const aboutus = aboutusphoto;
 export const videocard = videocardphoto;
 export const aboutusbottom = aboutusbottomimg;
+export const checkinput = checkInput;
+export const circlegrayIcon = circlegray;
+export const circlegreenIcon = circlegreen;
 
 export const items = [
   {

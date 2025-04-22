@@ -11,6 +11,7 @@ import { ProductDetailPage } from "../pages/ProductDetailPage";
 import { ContactPage } from "../pages/ContactPage";
 import { TeamPage } from "../pages/TeamPage";
 import { AboutUsPage } from "../pages/AboutUsPage";
+import { PricingPage } from "../pages/PricingPage";
 
 export function PageContent({ children }) {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 1024);
@@ -72,8 +73,15 @@ export function PageContent({ children }) {
             setIsContactpage={setIsContactpage}
           />
         </Route>
-        <Route>
+        <Route path="/about">
           <AboutUsPage
+            isMobile={isMobile}
+            setIsHomePage={setIsHomePage}
+            setIsContactpage={setIsContactpage}
+          />
+        </Route>
+        <Route path="/pricing">
+          <PricingPage
             isMobile={isMobile}
             setIsHomePage={setIsHomePage}
             setIsContactpage={setIsContactpage}

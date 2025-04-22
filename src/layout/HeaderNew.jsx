@@ -78,6 +78,14 @@ export function HeaderNew({
               Team
             </a>
           </li>
+          <li className="list-none">
+            <a
+              className="!text-[#737373] !no-underline !font-bold"
+              href="/pricing"
+            >
+              Pricing
+            </a>
+          </li>
         </nav>
         <div className="flex gap-8">
           <Search className="lg:hidden" />
@@ -158,6 +166,12 @@ export function HeaderNew({
             href="/team"
           >
             Team
+          </a>
+          <a
+            className="font-montserrat text-xl !no-underline !text-[#737373]"
+            href="/pricing"
+          >
+            Pricing
           </a>
 
           <div className=" flex gap-1 items-center">
