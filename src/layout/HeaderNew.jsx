@@ -16,6 +16,11 @@ import {
   CarouselIndicators,
   CarouselCaption,
 } from "reactstrap";
+import {
+  Link,
+  useHistory,
+  useLocation,
+} from "react-router-dom/cjs/react-router-dom";
 
 export function HeaderNew({
   isMobile,
@@ -23,6 +28,13 @@ export function HeaderNew({
   isContactpage,
   setIsContactPage,
 }) {
+  const history = useHistory();
+  const location = useLocation();
+
+  function goToSignup() {
+    history.push("/signup", { state: { from: location.pathname } });
+  }
+
   const [menu, setMenu] = useState(false);
   const [current, setCurrent] = useState(0);
 
@@ -109,9 +121,13 @@ export function HeaderNew({
             ) : (
               <div>
                 <span>/</span>
-                <a className="!no-underline !font-bold !text-[#23A6F0]" href="">
+                <Link
+                  className="!no-underline !font-bold !text-[#23A6F0]"
+                  to="/signup"
+                  state={{ from: location.pathname }}
+                >
                   Register
-                </a>
+                </Link>
               </div>
             )}
           </div>
@@ -189,12 +205,15 @@ export function HeaderNew({
               Login
             </a>
             <span>/</span>
-            <a
+            <Link
               className="!no-underline !font-semibold !text-[#23A6F0] !text-2xl !m-0"
-              href=""
+              to={{ pathname: "/signup", state: { from: location.pathname } }}
+              onClick={() => {
+                setMenu(false);
+              }}
             >
               Register
-            </a>
+            </Link>
           </div>
           <div className="flex flex-col items-center justify-center">
             <img className="w-20 mr-3" src={search} alt="" />
