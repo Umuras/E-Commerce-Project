@@ -96,13 +96,15 @@ export function SignupPage({ setIsHomePage }) {
   }
 
   return (
-    <section className="flex flex-col items-center justify-center bg-[#FAFAFA]">
+    <section className="flex flex-col items-center  justify-center lg:items-center bg-[#FAFAFA]">
       <form
-        className="flex flex-col items-center justify center gap-4 bg-[#2A7CC7] py-10 w-[80%] rounded-2xl"
+        className="flex flex-col lg:items-start lg:px-24 items-center justify center gap-4 bg-[#2A7CC7] py-10 w-[80%] rounded-2xl"
         onSubmit={handleSubmit(signup)}
       >
-        <h1 className="!text-[20px] !font-bold !text-[#232B42]">Signup Form</h1>
-        <div className="flex flex-col">
+        <h1 className="!text-[20px] !font-bold !text-[#232B42] lg:!text-center lg:w-full">
+          Signup Form
+        </h1>
+        <div className="flex flex-col lg:w-[100%]">
           <h4 className="!text-[14px] !font-bold !text-[#232B42]">Name</h4>
           <input
             className="px-4 py-2 border-black border-2 rounded-lg bg-white"
@@ -123,7 +125,7 @@ export function SignupPage({ setIsHomePage }) {
           )}
         </div>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col lg:w-[100%]">
           <h4 className="!text-[14px] !font-bold !text-[#232B42]">Email</h4>
           <input
             className="px-4 py-2 border-black border-2 rounded-lg bg-white"
@@ -145,7 +147,7 @@ export function SignupPage({ setIsHomePage }) {
           )}
         </div>
 
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 lg:w-[100%]">
           <div className="flex flex-col">
             <h4 className="!text-[14px] !font-bold !text-[#232B42]">
               Password
@@ -170,7 +172,7 @@ export function SignupPage({ setIsHomePage }) {
             )}
           </div>
 
-          <div>
+          <div className="flex flex-col">
             <h4 className="!text-[14px] !font-bold !text-[#232B42]">
               Password Validation
             </h4>
@@ -218,7 +220,7 @@ export function SignupPage({ setIsHomePage }) {
 
         {roleId === 2 ? (
           <>
-            <div className="flex flex-col">
+            <div className="flex flex-col lg:w-[100%]">
               <h4 className="!text-[14px] !font-bold !text-[#232B42]">
                 Store Name
               </h4>
@@ -241,7 +243,7 @@ export function SignupPage({ setIsHomePage }) {
               )}
             </div>
 
-            <div className="flex flex-col">
+            <div className="flex flex-col lg:w-[100%]">
               <h4 className="!text-[14px] !font-bold !text-[#232B42]">
                 Store Phone
               </h4>
@@ -264,7 +266,7 @@ export function SignupPage({ setIsHomePage }) {
               )}
             </div>
 
-            <div className="flex flex-col">
+            <div className="flex flex-col lg:w-[100%]">
               <h4 className="!text-[14px] !font-bold !text-[#232B42]">
                 Store TaxID
               </h4>
@@ -288,7 +290,7 @@ export function SignupPage({ setIsHomePage }) {
               )}
             </div>
 
-            <div className="flex flex-col">
+            <div className="flex flex-col lg:w-[100%]">
               <h4 className="!text-[14px] !font-bold !text-[#232B42]">
                 Store IBAN
               </h4>
@@ -318,7 +320,7 @@ export function SignupPage({ setIsHomePage }) {
 
         <button //isSubmitting butona bastığımız an true oluyor ve disabled oluyor, bu sayede post işlemi bitene kadar butona basamıyoruz.
           disabled={!isValid || isSubmitting}
-          className={`px-4 py-2.5 text-[#FFFFFF] font-bold  !rounded-lg border-black border-2 ${
+          className={`px-4 py-2.5 text-[#FFFFFF] font-bold lg:w-[100%] !rounded-lg border-black border-2 ${
             isValid ? "bg-[#beb74a]" : "bg-[#A9A9A9]"
           }`}
         >

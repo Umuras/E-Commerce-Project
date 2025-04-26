@@ -6,12 +6,14 @@ import { BrowserRouter } from "react-router-dom/cjs/react-router-dom.js";
 import { Toast } from "reactstrap";
 import { ToastContainer } from "react-toastify";
 import { PreviousPageProvider } from "./contexts/PreviousPageContext.jsx";
+import { Provider } from "react-redux";
+import { store } from "./store/store.js";
 
 createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
-    {/* <PreviousPageProvider> */}
-    <ToastContainer />
-    <App />
-    {/* </PreviousPageProvider> */}
-  </BrowserRouter>
+  <Provider store={store}>
+    <BrowserRouter>
+      <ToastContainer />
+      <App />
+    </BrowserRouter>
+  </Provider>
 );

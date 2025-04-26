@@ -114,7 +114,10 @@ export function HeaderNew({
               Login
             </a>
             {isContactpage ? (
-              <button className="!ml-10 w-[214px] !px-4 !py-4 !rounded-[5px] !text-white bg-[#23A6F0] !text-[14px] flex gap-4 items-center justify-center">
+              <button
+                className="!ml-10 w-[214px] !px-4 !py-4 !rounded-[5px] !text-white bg-[#23A6F0] !text-[14px] flex gap-4 items-center justify-center"
+                onClick={goToSignup}
+              >
                 Become a member
                 <MoveRight className="w-4 !font-bold" />
               </button>
