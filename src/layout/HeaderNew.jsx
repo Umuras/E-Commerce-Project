@@ -21,6 +21,8 @@ import {
   useHistory,
   useLocation,
 } from "react-router-dom/cjs/react-router-dom";
+import Gravatar from "react-gravatar";
+import { useSelector } from "react-redux";
 
 export function HeaderNew({
   isMobile,
@@ -37,6 +39,10 @@ export function HeaderNew({
 
   const [menu, setMenu] = useState(false);
   const [current, setCurrent] = useState(0);
+  const [loginLayout, setLoginLayout] = useState(false);
+
+  const { user } = useSelector((state) => state.client);
+  //console.log("user", user);
 
   const nextSlide = () => {
     setCurrent((prev) => (prev + 1) % items.length);
@@ -52,88 +58,128 @@ export function HeaderNew({
         <label className="text-xl font-bold">Bandage</label>
         <nav className="hidden lg:flex gap-6 lg:items-center lg:justify-center ">
           <li className="list-none">
-            <a className="!text-[#737373] !no-underline !font-bold" href="/">
+            <Link className="!text-[#737373] !no-underline !font-bold" to="/">
               Home
-            </a>
+            </Link>
           </li>
           <li className="list-none">
-            <a className="!text-[#252B42] !no-underline" href="/shop">
+            <Link className="!text-[#252B42] !no-underline" to="/shop">
               Shop
-            </a>
+            </Link>
           </li>
           <li className="list-none">
-            <a
+            <Link
               className="!text-[#737373] !no-underline !font-bold"
-              href="/about"
+              to="/about"
             >
               About
-            </a>
+            </Link>
           </li>
           <li className="list-none">
-            <a
+            <Link
               className="!text-[#737373] !no-underline !font-bold"
-              href="/blog"
+              to="/blog"
             >
               Blog
-            </a>
+            </Link>
           </li>
           <li className="list-none">
-            <a
+            <Link
               className="!text-[#737373] !no-underline !font-bold"
-              href="/contact"
+              to="/contact"
             >
               Contact
-            </a>
+            </Link>
           </li>
           <li className="list-none">
-            <a
+            <Link
               className="!text-[#737373] !no-underline !font-bold"
-              href="/team"
+              to="/team"
             >
               Team
-            </a>
+            </Link>
           </li>
           <li className="list-none">
-            <a
+            <Link
               className="!text-[#737373] !no-underline !font-bold"
-              href="/pricing"
+              to="/pricing"
             >
               Pricing
-            </a>
+            </Link>
           </li>
         </nav>
-        <div className="flex gap-8">
-          <Search className="lg:hidden" />
-          <ShoppingCart className="lg:hidden" />
-          <MenuIcon className="lg:hidden" onClick={() => setMenu(!menu)} />
-          <div className="hidden lg:flex lg:gap-1 lg:items-center">
-            {!isContactpage && (
-              <img className="hidden lg:block lg:w-5" src={user} alt="" />
+        <div className="flex gap-4 items-center justify-end">
+          <div className="flex flex-col">
+            {Object.keys(user).length !== 0 && (
+              <Gravatar
+                email={user.email}
+                className="cursor-pointer rounded-3xl w-[12%]"
+                onClick={() => setLoginLayout(!loginLayout)}
+              />
             )}
-            <a className="m-0 !no-underline !font-bold !text-[#23A6F0]" href="">
-              Login
-            </a>
-            {isContactpage ? (
-              <button
-                className="!ml-10 w-[214px] !px-4 !py-4 !rounded-[5px] !text-white bg-[#23A6F0] !text-[14px] flex gap-4 items-center justify-center"
-                onClick={goToSignup}
-              >
-                Become a member
-                <MoveRight className="w-4 !font-bold" />
-              </button>
-            ) : (
-              <div>
-                <span>/</span>
-                <Link
-                  className="!no-underline !font-bold !text-[#23A6F0]"
-                  to="/signup"
-                  state={{ from: location.pathname }}
-                >
-                  Register
-                </Link>
+            {Object.keys(user).length !== 0 && (
+              <Gravatar
+                email={user.email}
+                className="cursor-pointer rounded-3xl w-[12%]"
+              />
+            )}
+            {loginLayout && (
+              <div className="flex flex-col bg-gray-200">
+                <ul>
+                  <li className="list-none">
+                    <label
+                      htmlFor=""
+                      className="font-bold text-xl text-[#737373]"
+                    >
+                      @{user.email}
+                    </label>
+                  </li>
+                  <li className="list-none">
+                    <button className="font-bold text-xl text-[#737373]">
+                      Logout
+                    </button>
+                  </li>
+                </ul>
               </div>
             )}
           </div>
+          <Search className="lg:hidden" />
+          <ShoppingCart className="lg:hidden" />
+          <MenuIcon className="lg:hidden" onClick={() => setMenu(!menu)} />
+          {Object.keys(user).length === 0 && (
+            <div className="hidden lg:flex lg:gap-1 lg:items-center">
+              {!isContactpage && (
+                <img className="hidden lg:block lg:w-5" src={user} alt="" />
+              )}
+              <Link
+                className="m-0 !no-underline !font-bold !text-[#23A6F0]"
+                to="/login"
+                state={{ from: location.pathname }}
+              >
+                Login
+              </Link>
+              {isContactpage ? (
+                <button
+                  className="!ml-10 w-[214px] !px-4 !py-4 !rounded-[5px] !text-white bg-[#23A6F0] !text-[14px] flex gap-4 items-center justify-center"
+                  onClick={goToSignup}
+                >
+                  Become a member
+                  <MoveRight className="w-4 !font-bold" />
+                </button>
+              ) : (
+                <div>
+                  <span>/</span>
+                  <Link
+                    className="!no-underline !font-bold !text-[#23A6F0]"
+                    to="/signup"
+                    state={{ from: location.pathname }}
+                  >
+                    Register
+                  </Link>
+                </div>
+              )}
+            </div>
+          )}
           {!isContactpage && (
             <div className="hidden lg:flex lg:gap-3 lg:items-center lg:justify-center">
               <img src={search} alt="" />
@@ -156,68 +202,94 @@ export function HeaderNew({
       </div>
       {menu && (
         <div className="flex flex-col items-center gap-4 mt-16 mb-10">
-          <a
+          <Link
             className="font-montserrat text-xl !no-underline !text-[#737373]"
-            href="/"
+            to="/"
+            onClick={() => {
+              setMenu(false);
+            }}
           >
             Home
-          </a>
-          <a
+          </Link>
+          <Link
             className="font-montserrat text-xl !no-underline !text-[#737373]"
-            href="/shop"
+            to="/shop"
+            onClick={() => {
+              setMenu(false);
+            }}
           >
             Shop
-          </a>
-          <a
+          </Link>
+          <Link
             className="font-montserrat text-xl !no-underline !text-[#737373]"
-            href="/about"
+            to="/about"
+            onClick={() => {
+              setMenu(false);
+            }}
           >
             About
-          </a>
-          <a
+          </Link>
+          <Link
             className="font-montserrat text-xl !no-underline !text-[#737373]"
-            href="/blog"
+            to="/blog"
+            onClick={() => {
+              setMenu(false);
+            }}
           >
             Blog
-          </a>
-          <a
+          </Link>
+          <Link
             className="font-montserrat text-xl !no-underline !text-[#737373]"
-            href="/contact"
+            to="/contact"
+            onClick={() => {
+              setMenu(false);
+            }}
           >
             Contact
-          </a>
-          <a
+          </Link>
+          <Link
             className="font-montserrat text-xl !no-underline !text-[#737373]"
-            href="/team"
+            to="/team"
+            onClick={() => {
+              setMenu(false);
+            }}
           >
             Team
-          </a>
-          <a
+          </Link>
+          <Link
             className="font-montserrat text-xl !no-underline !text-[#737373]"
-            href="/pricing"
+            to="/pricing"
+            onClick={() => {
+              setMenu(false);
+            }}
           >
             Pricing
-          </a>
+          </Link>
 
-          <div className=" flex gap-1 items-center">
-            <img className="block w-5" src={user} alt="" />
-            <a
-              className="!m-0 !no-underline !font-semibold !text-[#23A6F0] !text-2xl"
-              href=""
-            >
-              Login
-            </a>
-            <span>/</span>
-            <Link
-              className="!no-underline !font-semibold !text-[#23A6F0] !text-2xl !m-0"
-              to={{ pathname: "/signup", state: { from: location.pathname } }}
-              onClick={() => {
-                setMenu(false);
-              }}
-            >
-              Register
-            </Link>
-          </div>
+          {Object.keys(user).length === 0 && (
+            <div className=" flex gap-1 items-center">
+              <img className="block w-5" src={user} alt="" />
+              <Link
+                className="!m-0 !no-underline !font-semibold !text-[#23A6F0] !text-2xl"
+                to={{ pathname: "/login", state: { from: location.pathname } }}
+                onClick={() => {
+                  setMenu(false);
+                }}
+              >
+                Login
+              </Link>
+              <span>/</span>
+              <Link
+                className="!no-underline !font-semibold !text-[#23A6F0] !text-2xl !m-0"
+                to={{ pathname: "/signup", state: { from: location.pathname } }}
+                onClick={() => {
+                  setMenu(false);
+                }}
+              >
+                Register
+              </Link>
+            </div>
+          )}
           <div className="flex flex-col items-center justify-center">
             <img className="w-20 mr-3" src={search} alt="" />
             <div className="flex flex-col gap-4">
