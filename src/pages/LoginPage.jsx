@@ -89,7 +89,6 @@ export function LoginPage({ setIsHomePage }) {
             <input
               type="checkbox"
               {...register("rememberMe")}
-              checked={isChecked}
               onChange={(e) => setIsChecked(e.target.value)}
             />
             <label htmlFor="" className="text-black font-bold text-lg">
