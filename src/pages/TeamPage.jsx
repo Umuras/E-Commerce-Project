@@ -10,6 +10,7 @@ import {
   teamPagePhotos,
   twitterbottomteamIcon,
 } from "../dummyData";
+import { Link } from "react-router-dom/cjs/react-router-dom";
 
 export function TeamPage({ setIsHomePage, setIsContactpage }) {
   useEffect(() => {
@@ -26,19 +27,19 @@ export function TeamPage({ setIsHomePage, setIsContactpage }) {
           Innovation tailored for you
         </h2>
         <div className="flex gap-4 my-4">
-          <a
+          <Link
             className="font-bold text-center !text-[#252B42] !no-underline"
-            href="/home"
+            to="/"
           >
             Home
-          </a>
+          </Link>
           <img className="w-1.5 !text-[#737373]" src={rightIconBlue} alt="" />
-          <a
+          <Link
             className=" font-bold text-center !text-[#737373] !no-underline"
-            href="/team"
+            to="/team"
           >
             Team
-          </a>
+          </Link>
         </div>
       </div>
 

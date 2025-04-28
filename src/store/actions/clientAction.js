@@ -1,3 +1,6 @@
+import { toast } from "react-toastify";
+import api from "../../services/api";
+
 export const SET_USER = "SET_USER";
 export const SET_ROLES = "SET_ROLES";
 export const SET_THEME = "SET_THEME";
@@ -48,5 +51,29 @@ export const getRoles = () => (dispatch, getState) => {
       });
   } catch (error) {
     console.error("Error in getRoles action:", error);
+  }
+};
+
+export const getUserAction = (formData) => async (dispatch) => {
+  try {
+    return await api
+      .post("/login", formData)
+      .then((response) => {
+        const user = response.data;
+        dispatch(setUser(user));
+        if (formData.rememberMe) {
+          localStorage.setItem("token", user.token); // Store token in local storage
+          console.log("Token stored in local storage:", user.token);
+        }
+        toast.success("Login successful!");
+        return true; // Return true to indicate success
+      })
+      .catch((error) => {
+        console.error("Error fetching user:", error);
+        toast.error("Login failed. Please check your credentials.");
+        return false; // Return false to indicate failure
+      });
+  } catch (error) {
+    console.error("Error in getUser action:", error);
   }
 };
