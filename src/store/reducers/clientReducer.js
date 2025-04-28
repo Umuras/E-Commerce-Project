@@ -1,4 +1,3 @@
-import { user } from "../../dummyData";
 import {
   SET_USER,
   SET_ROLES,

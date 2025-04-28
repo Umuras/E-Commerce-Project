@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
-import { basket, items, like, search, slides, user } from "../dummyData";
+import { basket, items, like, search, userPhoto } from "../dummyData";
 import {
   Search,
   ShoppingCart,
@@ -22,7 +22,9 @@ import {
   useLocation,
 } from "react-router-dom/cjs/react-router-dom";
 import Gravatar from "react-gravatar";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { set } from "react-hook-form";
+import { setUser } from "../store/actions/clientAction";
 
 export function HeaderNew({
   isMobile,
@@ -32,6 +34,7 @@ export function HeaderNew({
 }) {
   const history = useHistory();
   const location = useLocation();
+  const dispatch = useDispatch();
 
   function goToSignup() {
     history.push("/signup", { state: { from: location.pathname } });
@@ -50,6 +53,12 @@ export function HeaderNew({
 
   const prevSlide = () => {
     setCurrent((prev) => (prev - 1 + items.length) % items.length);
+  };
+
+  const logout = () => {
+    localStorage.removeItem("token");
+    dispatch(setUser({}));
+    setLoginLayout(false);
   };
 
   return (
@@ -108,34 +117,33 @@ export function HeaderNew({
             </Link>
           </li>
         </nav>
-        <div className="flex gap-4 items-center justify-end">
-          <div className="flex flex-col">
+
+        <div className="flex gap-4 lg:!gap-1 items-center justify-center">
+          <div className="flex flex-col relative">
             {Object.keys(user).length !== 0 && (
               <Gravatar
                 email={user.email}
-                className="cursor-pointer rounded-3xl w-[12%]"
+                className="cursor-pointer rounded-3xl w-[50%] m-auto"
                 onClick={() => setLoginLayout(!loginLayout)}
               />
             )}
-            {Object.keys(user).length !== 0 && (
-              <Gravatar
-                email={user.email}
-                className="cursor-pointer rounded-3xl w-[12%]"
-              />
-            )}
+
             {loginLayout && (
-              <div className="flex flex-col bg-gray-200">
+              <div className="flex flex-col bg-gray-100 pr-4 absolute top-10 z-10">
                 <ul>
                   <li className="list-none">
-                    <label
+                    <h2
                       htmlFor=""
-                      className="font-bold text-xl text-[#737373]"
+                      className="!font-bold !text-xs !text-[#737373] !mt-3"
                     >
-                      @{user.email}
-                    </label>
+                      {user.email}
+                    </h2>
                   </li>
                   <li className="list-none">
-                    <button className="font-bold text-xl text-[#737373]">
+                    <button
+                      className="font-bold text-xs text-[#737373]"
+                      onClick={() => logout()}
+                    >
                       Logout
                     </button>
                   </li>
@@ -149,7 +157,11 @@ export function HeaderNew({
           {Object.keys(user).length === 0 && (
             <div className="hidden lg:flex lg:gap-1 lg:items-center">
               {!isContactpage && (
-                <img className="hidden lg:block lg:w-5" src={user} alt="" />
+                <img
+                  className="hidden lg:block lg:w-5"
+                  src={userPhoto}
+                  alt=""
+                />
               )}
               <Link
                 className="m-0 !no-underline !font-bold !text-[#23A6F0]"
@@ -201,7 +213,7 @@ export function HeaderNew({
         </div>
       </div>
       {menu && (
-        <div className="flex flex-col items-center gap-4 mt-16 mb-10">
+        <div className="lg:hidden flex flex-col items-center gap-4 mt-16 mb-10">
           <Link
             className="font-montserrat text-xl !no-underline !text-[#737373]"
             to="/"
