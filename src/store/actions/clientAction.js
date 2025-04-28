@@ -77,3 +77,31 @@ export const getUserAction = (formData) => async (dispatch) => {
     console.error("Error in getUser action:", error);
   }
 };
+
+export const getVerify = (token) => async (dispatch) => {
+  try {
+    api
+      .get("/verify", {
+        headers: {
+          Authorization: token,
+        },
+      })
+      .then((response) => {
+        const user = response.data;
+        console.log("User verified:", user);
+        dispatch(setUser(user));
+        localStorage.setItem("token", user.token); // Store token in local storage
+        api.defaults.headers.common["Authorization"] = user.token;
+        toast.success("User verified successfully!");
+      })
+      .catch((error) => {
+        console.error("Error verifying user:", error);
+        localStorage.removeItem("token"); // Remove token from local storage
+        api.defaults.headers.common["Authorization"] = null; // Clear the token from axios headers
+        toast.error("Verification failed. Please log in again.");
+      });
+  } catch (error) {
+    console.error("Error in getVerify action:", error);
+    toast.error("An error occurred during verification.");
+  }
+};
