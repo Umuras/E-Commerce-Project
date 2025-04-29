@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 import { get, set, useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useLocation } from "react-router-dom/cjs/react-router-dom";
+import {
+  Link,
+  useHistory,
+  useLocation,
+} from "react-router-dom/cjs/react-router-dom";
 import { getUserAction } from "../store/actions/clientAction";
 
 export function LoginPage({ setIsHomePage }) {
@@ -106,7 +110,7 @@ export function LoginPage({ setIsHomePage }) {
           Submit
           {/* isSubbmitting butona basığımız an true oluyor ve butonun üstünde loading efekti veriyoruz. */}
           {isSubmitting && (
-            <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+            <div className="inline-block lg:inline-block ml-4 w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
           )}
         </button>
       </form>

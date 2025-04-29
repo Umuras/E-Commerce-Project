@@ -20,8 +20,8 @@ const clientReducer = (state = initialState, action) => {
       return {
         ...state,
         user: action.payload,
-        addressList: action.payload.addressList || [],
-        creditCards: action.payload.creditCards || [],
+        addressList: [],
+        creditCards: [],
       };
     case SET_ROLES:
       return {

@@ -1,3 +1,6 @@
+import { toast } from "react-toastify";
+import api from "../../services/api";
+
 export const SET_CATEGORIES = "SET_CATEGORIES";
 export const SET_PRODUCT_LIST = "SET_PRODUCT_LIST";
 export const SET_TOTAL = "SET_TOTAL";
@@ -33,3 +36,26 @@ export function setOffset(offset) {
 export function setFilter(filter) {
   return { type: SET_FILTER, payload: filter };
 }
+
+export const getCategories = () => async (dispatch) => {
+  try {
+    await api
+      .get("/categories")
+      .then((response) => {
+        if (response.status === 200) {
+          dispatch(setCategories(response.data));
+          toast.success("Categories fetched successfully");
+        } else {
+          dispatch(setCategories([]));
+        }
+      })
+      .catch((error) => {
+        dispatch(setCategories([]));
+        console.log(error);
+        toast.error("Error fetching categories");
+      });
+  } catch (error) {
+    console.log(error);
+    toast.error("Error fetching categories", error);
+  }
+};

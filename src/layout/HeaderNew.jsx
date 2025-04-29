@@ -1,6 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
-import { basket, items, like, search, userPhoto } from "../dummyData";
+import {
+  basket,
+  downArrow,
+  items,
+  like,
+  search,
+  userPhoto,
+} from "../dummyData";
 import {
   Search,
   ShoppingCart,
@@ -8,6 +15,7 @@ import {
   ChevronLeft,
   ChevronRight,
   MoveRight,
+  PanelBottomIcon,
 } from "lucide-react";
 import {
   Carousel,
@@ -43,9 +51,11 @@ export function HeaderNew({
   const [menu, setMenu] = useState(false);
   const [current, setCurrent] = useState(0);
   const [loginLayout, setLoginLayout] = useState(false);
+  const [shopDropdown, setShopDropdown] = useState(false);
 
   const { user } = useSelector((state) => state.client);
   //console.log("user", user);
+  const { categories } = useSelector((state) => state.product);
 
   const nextSlide = () => {
     setCurrent((prev) => (prev + 1) % items.length);
@@ -72,9 +82,57 @@ export function HeaderNew({
             </Link>
           </li>
           <li className="list-none">
-            <Link className="!text-[#252B42] !no-underline" to="/shop">
-              Shop
-            </Link>
+            <div className="flex gap-2 items-center justify-center relative">
+              <Link className="!text-[#252B42] !no-underline" to="/shop">
+                Shop
+              </Link>
+              <img
+                src={downArrow}
+                className="!text-black cursor-pointer"
+                alt=""
+                onClick={() => setShopDropdown(!shopDropdown)}
+              />
+            </div>
+
+            {shopDropdown && (
+              <div className="lg:absolute hidden lg:block lg:bg-[#FAFAFA] lg:text-black lg:w-[396px]  mt-2 pb-2 lg:z-10">
+                <div className="lg:flex ml-8">
+                  <div className="flex flex-col gap-4 items-start justify-start w-full h-full mt-1.5">
+                    <Link className="!no-underline !font-bold !text-[#252B42]">
+                      Kadın
+                    </Link>
+                    {Array.from({ length: 8 }, (_, index) => {
+                      return (
+                        <Link
+                          key={index}
+                          className="!no-underline !font-bold !text-[#737373]"
+                          to={`/shop/${categories[index]?.gender}/${categories[index]?.code}/${categories[index]?.id}`}
+                        >
+                          {categories[index]?.title}
+                        </Link>
+                      );
+                    })}
+                  </div>
+                  <div className="flex flex-col gap-4 items-start justify-center w-full h-full mt-1.5">
+                    <Link className="!no-underline !font-bold !text-[#252B42]">
+                      Erkek
+                    </Link>
+                    {/*Bu şekilde categoriesin ilk 8 elemanını alıp onları map ile dönüyoruz*/}
+                    {categories.slice(8).map((item, index) => {
+                      return (
+                        <Link
+                          key={index}
+                          className="!no-underline !font-bold !text-[#737373]"
+                          to={`/shop/${item.gender}/${item.code}/${item.id}`}
+                        >
+                          {item.title}
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+            )}
           </li>
           <li className="list-none">
             <Link
