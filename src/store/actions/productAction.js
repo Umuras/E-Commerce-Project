@@ -59,3 +59,27 @@ export const getCategories = () => async (dispatch) => {
     toast.error("Error fetching categories", error);
   }
 };
+
+export const getProducts = () => async (dispatch) => {
+  try {
+    await api
+      .get("/products")
+      .then((response) => {
+        if (response.status === 200) {
+          dispatch(setTotal(response.data.total));
+          dispatch(setProductList(response.data.products));
+          toast.success("ProductList fetched successfully");
+        } else {
+          dispatch(setProductList([]));
+        }
+      })
+      .catch((error) => {
+        dispatch(setProductList([]));
+        console.log(error);
+        toast.error("Error fetching productList");
+      });
+  } catch (error) {
+    console.log(error);
+    toast.error("Error fetching productList", error);
+  }
+};

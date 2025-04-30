@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom/cjs/react-router-dom";
 import { fsquare, tline } from "../dummyData";
 import { ProductCardForShopPage } from "./ProductCardForShopPage";
 
@@ -6,7 +7,7 @@ export function ShopPageItemsArea({ isMobile }) {
     <section className="flex flex-col items-center justify-center pb-10 !bg-white  pt-10">
       <div className="lg:flex lg:gap-0 lg:items-center lg:justify-between lg:w-[75.5%] lg:ml-20 lg:mr-20 ">
         <h6 className="!text-[14px] !text-[#737373] !font-bold lg:m-0 text-center">
-          Showing all 12 results
+          {isMobile ? "Showing all 4 results" : "Showing all 12 results"}
         </h6>
         <div className="flex gap-3 mt-4 lg:!mt-0  items-center justify-center">
           <h6 className="!text-[14px] !text-[#737373] !font-bold lg:m-0 lg:p-0">
@@ -31,45 +32,39 @@ export function ShopPageItemsArea({ isMobile }) {
         </div>
       </div>
 
-      {isMobile ? (
-        <ProductCardForShopPage isMobile={isMobile} />
-      ) : (
-        Array.from({ length: 3 }, (_, index) => {
-          return <ProductCardForShopPage isMobile={isMobile} />;
-        })
-      )}
+      <ProductCardForShopPage isMobile={isMobile} />
 
       <div className="flex my-10 justify-center shadow-sm rounded-lg">
-        <a
+        <Link
           className="!bg-[#F3F3F3] !border-[#BDBDBD] !text-[#BDBDBD] !text-[14px] p-4 border-1 !no-underline !font-bold rounded-l-lg"
-          href="#"
+          to="#"
         >
           First
-        </a>
-        <a
+        </Link>
+        <Link
           className="border-1 px-3 py-6 text-blue-400 !font-bold !no-underline !text-center bg-white !border-[#BDBDBD] cursor-pointer"
-          href="#"
+          to="#"
         >
           1
-        </a>
-        <a
+        </Link>
+        <Link
           className=" border-1 px-3 py-6 text-white !font-bold !no-underline !align-middle bg-[#23A6F0] !border-[#BDBDBD] cursor-pointer"
-          href="#"
+          to="#"
         >
           2
-        </a>
-        <a
+        </Link>
+        <Link
           className=" border-1 px-3 py-6 text-blue-400 !font-bold !no-underline !text-center bg-white !border-[#BDBDBD] cursor-pointer"
-          href="#"
+          to="#"
         >
           3
-        </a>
-        <a
+        </Link>
+        <Link
           className="!bg-white !border-[#BDBDBD] !text-[#23A6F0] !text-[14px] p-4 border-1 !no-underline !font-bold rounded-r-lg cursor-pointer "
-          href="#"
+          to="#"
         >
           Next
-        </a>
+        </Link>
       </div>
     </section>
   );

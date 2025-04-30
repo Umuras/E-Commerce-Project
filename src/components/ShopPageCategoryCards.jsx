@@ -32,7 +32,7 @@ export function ShopPageCategoryCards() {
 
   return (
     <>
-      <div className="relative flex flex-col lg:flex-row gap-2 items-center justify-center mb-10">
+      <div className="relative flex flex-col lg:flex-row gap-2 items-center justify-center mb-10 ">
         {slicingWomanCategory.map((item, index) => {
           return (
             <Link
@@ -41,7 +41,11 @@ export function ShopPageCategoryCards() {
               to={`/shop/${item.gender}/${item.code}/${item.id}`}
             >
               <div className="flex flex-col items-center justify-center relative">
-                <img className="w-[332px] h-[300px]" src={item.img} alt="" />
+                <img
+                  className="w-[332px] lg:w-[280px] h-[300px]"
+                  src={item.img}
+                  alt=""
+                />
 
                 <label
                   className="text-white font-semibold absolute top-25 text-2xl"

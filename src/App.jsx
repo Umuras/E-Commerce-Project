@@ -6,7 +6,7 @@ import { Header } from "./layout/Header";
 import { PageContent } from "./layout/PageContent";
 import { getVerify } from "./store/actions/clientAction";
 import { useDispatch, useSelector } from "react-redux";
-import { getCategories } from "./store/actions/productAction";
+import { getCategories, getProducts } from "./store/actions/productAction";
 
 function App() {
   const token = localStorage.getItem("token");
@@ -18,14 +18,22 @@ function App() {
   }
 
   const { categories } = useSelector((state) => state.product);
+  const { productList } = useSelector((state) => state.product);
 
   useEffect(() => {
     fetchCategories();
+    fetchProductList();
   }, []);
 
   async function fetchCategories() {
     if (categories.length === 0) {
       await dispatch(getCategories());
+    }
+  }
+
+  async function fetchProductList() {
+    if (productList.length === 0) {
+      await dispatch(getProducts());
     }
   }
 
