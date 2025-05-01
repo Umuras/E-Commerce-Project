@@ -12,7 +12,7 @@ import {
 
 const initialState = {
   categories: [],
-  selectedCategory: 4,
+  selectedCategory: 1,
   productList: [],
   total: 0,
   limit: 25,
