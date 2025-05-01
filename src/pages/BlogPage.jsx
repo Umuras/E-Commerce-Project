@@ -7,9 +7,10 @@ import {
 } from "../dummyData";
 import { BlogCard } from "../components/BlogCard";
 
-export function BlogPage({ setIsHomePage }) {
+export function BlogPage({ setIsHomePage, setIsContactpage }) {
   useEffect(() => {
     setIsHomePage(false);
+    setIsContactpage(true);
   });
   return (
     <section className="flex flex-col pb-20 bg-[#FAFAFA] pt-5">

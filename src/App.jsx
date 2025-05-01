@@ -19,6 +19,9 @@ function App() {
 
   const { categories } = useSelector((state) => state.product);
   const { productList } = useSelector((state) => state.product);
+  const { sort, filter, selectedCategory } = useSelector(
+    (state) => state.product
+  );
 
   useEffect(() => {
     fetchCategories();
@@ -33,7 +36,13 @@ function App() {
 
   async function fetchProductList() {
     if (productList.length === 0) {
-      await dispatch(getProducts());
+      await dispatch(
+        getProducts({
+          categoryId: selectedCategory,
+          sort: sort,
+          filter: filter,
+        })
+      );
     }
   }
 

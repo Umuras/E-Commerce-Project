@@ -8,20 +8,38 @@ import { ShopPageHeader } from "../components/ShopPageHeader";
 import { ShopPageCategoryCards } from "../components/ShopPageCategoryCards";
 import { ShopPageItemsArea } from "../components/ShopPageItemsArea";
 import { useEffect } from "react";
+import { getProducts } from "../store/actions/productAction";
+import { useDispatch } from "react-redux";
 
 export function ShopPage({ isMobile, setIsHomePage, setIsContactpage }) {
   useEffect(() => {
     setIsHomePage(false);
     setIsContactpage(false);
   });
+
+  const dispatchEvent = useDispatch();
+
+  function handleGetProductsForSelectedCategory(categoryId, sort, filter) {
+    dispatchEvent(getProducts({ categoryId, sort, filter }));
+  }
   return (
     <>
       <section className="flex flex-col bg-[#FAFAFA]">
         <ShopPageHeader />
 
-        <ShopPageCategoryCards isMobile={isMobile} />
+        <ShopPageCategoryCards
+          isMobile={isMobile}
+          handleGetProductsForSelectedCategory={
+            handleGetProductsForSelectedCategory
+          }
+        />
 
-        <ShopPageItemsArea isMobile={isMobile} />
+        <ShopPageItemsArea
+          isMobile={isMobile}
+          handleGetProductsForSelectedCategory={
+            handleGetProductsForSelectedCategory
+          }
+        />
 
         <section className="bg-[#FAFAFA] w-full flex items-center justify-center">
           <Clients />

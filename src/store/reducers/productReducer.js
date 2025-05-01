@@ -5,16 +5,20 @@ import {
   SET_LIMIT,
   SET_OFFSET,
   SET_PRODUCT_LIST,
+  SET_SELECTED_CATEGORY,
+  SET_SORT,
   SET_TOTAL,
 } from "../actions/productAction";
 
 const initialState = {
   categories: [],
+  selectedCategory: 4,
   productList: [],
   total: 0,
   limit: 25,
   offset: 0,
   filter: "",
+  sort: "rating:desc",
   fetchState: "NOT_FETCHED",
 };
 
@@ -54,6 +58,16 @@ export default function productReducer(state = initialState, action) {
       return {
         ...state,
         filter: action.payload,
+      };
+    case SET_SORT:
+      return {
+        ...state,
+        sort: action.payload,
+      };
+    case SET_SELECTED_CATEGORY:
+      return {
+        ...state,
+        selectedCategory: action.payload,
       };
     default:
       return state;

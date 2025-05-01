@@ -60,11 +60,14 @@ export function ProductCardForShopPage({ isMobile }) {
                 </div>
 
                 <div className="flex gap-2 items-center justify-center mt-2.5 lg:w-[80%]">
-                  <h5 className="font-bold !text-[14px] !text-[#BDBDBD]">
-                    Price: {item.price}
+                  <h5 className="font-bold !text-[14px] !text-[#23856D]">
+                    Price: {item.price} ₺
                   </h5>
                   <h5 className="font-bold !text-[14px] !text-[#23856D]">
                     Stock: {item.stock}
+                  </h5>
+                  <h5 className="font-bold !text-[14px] !text-[#23856D]">
+                    Rating: {item.rating}
                   </h5>
                 </div>
               </section>

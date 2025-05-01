@@ -1,15 +1,24 @@
 import { useDispatch, useSelector } from "react-redux";
 import { shopCardItems } from "../dummyData";
 import { useEffect } from "react";
-import { getCategories } from "../store/actions/productAction";
+import {
+  getCategories,
+  getProducts,
+  setSelectedCategory,
+} from "../store/actions/productAction";
 import { Link } from "react-router-dom/cjs/react-router-dom";
+import { set } from "react-hook-form";
 
-export function ShopPageCategoryCards() {
+export function ShopPageCategoryCards({
+  handleGetProductsForSelectedCategory,
+}) {
   const womanCategory = [];
   const slicingWomanCategory = [];
 
-  const { categories } = useSelector((state) => state.product);
-  console.log(categories);
+  const dispatch = useDispatch();
+  const { categories, selectedCategory, sort, filter } = useSelector(
+    (state) => state.product
+  );
 
   if (categories.length === 0) {
     return (
@@ -39,6 +48,10 @@ export function ShopPageCategoryCards() {
               className="flex flex-col items-center justify-center cursor-pointer"
               key={index}
               to={`/shop/${item.gender}/${item.code}/${item.id}`}
+              onClick={() =>
+                dispatch(setSelectedCategory(item.id)) &&
+                handleGetProductsForSelectedCategory(item.id, sort, filter)
+              }
             >
               <div className="flex flex-col items-center justify-center relative">
                 <img
