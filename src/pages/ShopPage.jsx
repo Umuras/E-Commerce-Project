@@ -19,8 +19,14 @@ export function ShopPage({ isMobile, setIsHomePage, setIsContactpage }) {
 
   const dispatchEvent = useDispatch();
 
-  function handleGetProductsForSelectedCategory(categoryId, sort, filter) {
-    dispatchEvent(getProducts({ categoryId, sort, filter }));
+  function handleGetProductsForSelectedCategory(
+    categoryId,
+    sort,
+    filter,
+    offset,
+    limit
+  ) {
+    dispatchEvent(getProducts({ categoryId, sort, filter, offset, limit }));
   }
   return (
     <>

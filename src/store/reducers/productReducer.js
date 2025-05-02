@@ -15,7 +15,7 @@ const initialState = {
   selectedCategory: 1,
   productList: [],
   total: 0,
-  limit: 25,
+  limit: 12,
   offset: 0,
   filter: "",
   sort: "rating:desc",

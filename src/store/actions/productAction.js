@@ -72,9 +72,18 @@ export const getCategories = () => async (dispatch) => {
 
 export const getProducts = (props) => async (dispatch) => {
   try {
-    const { categoryId, sort, filter } = props;
+    const { categoryId, sort, filter, offset, limit } = props;
     console.log(
-      "SORT:" + sort + "FİLTER:" + filter + "CATEGORYID:" + categoryId
+      "SORT: " +
+        sort +
+        " FİLTER: " +
+        filter +
+        " CATEGORYID: " +
+        categoryId +
+        " OFFSET: " +
+        offset +
+        " LIMIT: " +
+        limit
     );
 
     const params = new URLSearchParams();
@@ -88,13 +97,26 @@ export const getProducts = (props) => async (dispatch) => {
     if (filter) {
       params.append("filter", filter);
     }
+    if (offset) {
+      params.append("offset", offset);
+    } else {
+      params.append("offset", 0);
+    }
+    if (limit) {
+      params.append("limit", limit);
+    } else {
+      params.append("limit", 12);
+    }
     const url = `/products?${params.toString()}`;
+    console.log("URL: " + url);
+    dispatch(setFetchState("FETCHING"));
     await api
       .get(url)
       .then((response) => {
         if (response.status === 200) {
           dispatch(setTotal(response.data.total));
           dispatch(setProductList(response.data.products));
+          dispatch(setFetchState("FETCHED"));
           toast.success("ProductList fetched successfully");
         } else {
           dispatch(setProductList([]));
@@ -103,10 +125,13 @@ export const getProducts = (props) => async (dispatch) => {
       .catch((error) => {
         dispatch(setProductList([]));
         console.log(error);
+        dispatch(setFetchState("NOT_FETCHED"));
         toast.error("Error fetching productList");
       });
   } catch (error) {
     console.log(error);
+    dispatch(setProductList([]));
+    dispatch(setFetchState("NOT_FETCHED"));
     toast.error("Error fetching productList", error);
   }
 };

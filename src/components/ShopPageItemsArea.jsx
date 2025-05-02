@@ -3,7 +3,8 @@ import { fsquare, tline } from "../dummyData";
 import { ProductCardForShopPage } from "./ProductCardForShopPage";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setFilter, setSort } from "../store/actions/productAction";
+import { setFilter, setOffset, setSort } from "../store/actions/productAction";
+import { current } from "@reduxjs/toolkit";
 
 export function ShopPageItemsArea({
   isMobile,
@@ -14,6 +15,10 @@ export function ShopPageItemsArea({
   );
 
   const dispatch = useDispatch();
+  const [currentPage, setCurrentPage] = useState(1);
+  const { total, limit, offset } = useSelector((state) => state.product);
+
+  const totalPagesCount = Math.ceil(total / limit);
 
   function handleSortChange(event) {
     const selectedValue = event.target.value;
@@ -22,6 +27,19 @@ export function ShopPageItemsArea({
       selectedCategory,
       selectedValue,
       filter
+    );
+  }
+
+  function handlePageChange(pageNumber) {
+    setCurrentPage(pageNumber);
+    const offset = (pageNumber - 1) * limit;
+    dispatch(setOffset(offset));
+    handleGetProductsForSelectedCategory(
+      selectedCategory,
+      sort,
+      filter,
+      offset,
+      limit
     );
   }
 
@@ -72,36 +90,39 @@ export function ShopPageItemsArea({
       <ProductCardForShopPage isMobile={isMobile} />
 
       <div className="flex my-10 justify-center shadow-sm rounded-lg">
-        <Link
-          className="!bg-[#F3F3F3] !border-[#BDBDBD] !text-[#BDBDBD] !text-[14px] p-4 border-1 !no-underline !font-bold rounded-l-lg"
-          to="#"
+        <button
+          className={` !border-[#BDBDBD] !text-[#BDBDBD] !text-[14px] p-4 border-1 !no-underline !font-bold !rounded-l-lg ${
+            currentPage === 1 ? "!bg-[#F3F3F3]" : "!bg-white"
+          }`}
+          onClick={() => handlePageChange(1)}
+          disabled={currentPage === 1}
         >
           First
-        </Link>
-        <Link
-          className="border-1 px-3 py-6 text-blue-400 !font-bold !no-underline !text-center bg-white !border-[#BDBDBD] cursor-pointer"
+        </button>
+        {Array.from({ length: totalPagesCount }, (_, index) => (
+          <Link
+            key={index}
+            className={` !border-[#BDBDBD] !text-[#23A6F0] !text-[14px] p-4 border-1 !no-underline !font-bold ${
+              currentPage === index + 1
+                ? "  !text-white !bg-[#23A6F0]"
+                : "!text-[#23A6F0] !bg-white"
+            }`}
+            to="#"
+            onClick={() => handlePageChange(index + 1)}
+          >
+            {index + 1}
+          </Link>
+        ))}
+
+        <button
+          className={` !border-[#BDBDBD] !text-[#23A6F0] !text-[14px] p-4 border-1 !no-underline !font-bold !rounded-r-lg cursor-pointer 
+            ${currentPage === totalPagesCount ? "!bg-[#F3F3F3]" : "!bg-white"}`}
           to="#"
-        >
-          1
-        </Link>
-        <Link
-          className=" border-1 px-3 py-6 text-white !font-bold !no-underline !align-middle bg-[#23A6F0] !border-[#BDBDBD] cursor-pointer"
-          to="#"
-        >
-          2
-        </Link>
-        <Link
-          className=" border-1 px-3 py-6 text-blue-400 !font-bold !no-underline !text-center bg-white !border-[#BDBDBD] cursor-pointer"
-          to="#"
-        >
-          3
-        </Link>
-        <Link
-          className="!bg-white !border-[#BDBDBD] !text-[#23A6F0] !text-[14px] p-4 border-1 !no-underline !font-bold rounded-r-lg cursor-pointer "
-          to="#"
+          onClick={() => handlePageChange(currentPage + 1)}
+          disabled={currentPage === totalPagesCount}
         >
           Next
-        </Link>
+        </button>
       </div>
     </section>
   );

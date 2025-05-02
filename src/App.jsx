@@ -41,6 +41,8 @@ function App() {
           categoryId: selectedCategory,
           sort: sort,
           filter: filter,
+          offset: 0,
+          limit: 12,
         })
       );
     }
