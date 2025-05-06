@@ -1,20 +1,26 @@
 import { toast } from "react-toastify";
 import { bestSellerProducts, shopPageItemsForMobile } from "../dummyData";
 import { Clients } from "./Clients";
-import { useHistory } from "react-router-dom/cjs/react-router-dom";
+import { Link, useHistory } from "react-router-dom/cjs/react-router-dom";
 import { useSelector } from "react-redux";
+import { useState } from "react";
 
 export function ProductCardForShopPage({ isMobile }) {
   const history = useHistory();
-  const handleCardClick = () => {
-    history.push("/product"); // Navigate to the product detail page
-  };
 
   const { user } = useSelector((state) => state.client);
-  const { productList } = useSelector((state) => state.product);
+  const { categories } = useSelector((state) => state.product);
+
+  const { productList, selectedCategory } = useSelector(
+    (state) => state.product
+  );
+  const selectedCategoryObject = categories.find(
+    (category) => category.id === selectedCategory
+  );
+
   console.log("Product List:", productList);
 
-  const handleAddToCart = () => {
+  const handleAddToCart = (product) => {
     const token = localStorage.getItem("token");
     if (token || Object.keys(user).length > 0) {
       console.log("Sepete Ekle");
@@ -35,15 +41,15 @@ export function ProductCardForShopPage({ isMobile }) {
   return (
     <>
       <section className="bg-white flex flex-col lg:flex-row items-center lg:flex-wrap lg:w-[77%]">
-        {productList.slice(0, productNumber).map((item, index) => {
+        {productList.map((item, index) => {
           return (
             <div
               key={index}
-              className="cursor-pointer lg:m-2 lg:w-[350px]  shadow-sm shadow-gray-200 border-gray-400 "
+              className="cursor-pointer lg:m-2 lg:w-[350px]  shadow-sm shadow-gray-200 border-gray-400 hover:scale-105 hover:transition-all duration-300"
             >
-              <section
-                className="lg:flex lg:flex-col lg:w-full lg:h-[488px] lg:items-center lg:justify-center mt-4"
-                onClick={handleCardClick}
+              <Link
+                className="lg:flex lg:flex-col lg:w-full lg:h-[488px] lg:items-center lg:justify-center mt-4 !no-underline "
+                to={`/shop/${selectedCategoryObject.gender}/${selectedCategoryObject.title}/${selectedCategoryObject.id}/${item.name}/${item.id}`}
               >
                 <img
                   className="lg:w-[400px] lg:object-fill lg:h-[300px]"
@@ -70,7 +76,7 @@ export function ProductCardForShopPage({ isMobile }) {
                     Rating: {item.rating}
                   </h5>
                 </div>
-              </section>
+              </Link>
               <button
                 className="bg-blue-400 text-white text-lg font-bold rounded-lg px-4 py-2 w-full"
                 onClick={handleAddToCart}

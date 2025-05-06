@@ -49,17 +49,18 @@ export function PageContent({ children }) {
             setIsContactpage={setIsContactpage}
           />
         </Route>
+        //Url bu yapıya sahipse ProductDetailPage componentini render et
+        <Route path="/shop/:gender/:categoryName/:categoryId/:productNameSlug/:productId">
+          <ProductDetailPage
+            isMobile={isMobile}
+            setIsHomePage={setIsHomePage}
+          />
+        </Route>
         <Route path="/shop">
           <ShopPage
             isMobile={isMobile}
             setIsHomePage={setIsHomePage}
             setIsContactpage={setIsContactpage}
-          />
-        </Route>
-        <Route path="/product">
-          <ProductDetailPage
-            isMobile={isMobile}
-            setIsHomePage={setIsHomePage}
           />
         </Route>
         <Route path="/contact">
@@ -104,7 +105,6 @@ export function PageContent({ children }) {
             setIsContactpage={setIsContactpage}
           />
         </Route>
-
         <Route path="/login">
           <LoginPage
             isMobile={isMobile}

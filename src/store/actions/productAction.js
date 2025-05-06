@@ -4,6 +4,7 @@ import api from "../../services/api";
 export const SET_CATEGORIES = "SET_CATEGORIES";
 export const SET_SELECTED_CATEGORY = "SET_SELECTED_CATEGORY";
 export const SET_PRODUCT_LIST = "SET_PRODUCT_LIST";
+export const SET_SELECTED_PRODUCT = "SET_SELECTED_PRODUCT";
 export const SET_TOTAL = "SET_TOTAL";
 export const SET_FETCH_STATE = "SET_FETCH_STATE";
 export const SET_LIMIT = "SET_LIMIT";
@@ -17,6 +18,10 @@ export function setCategories(categories) {
 
 export function setProductList(productList) {
   return { type: SET_PRODUCT_LIST, payload: productList };
+}
+
+export function setSelectedProduct(selectedProduct) {
+  return { type: SET_SELECTED_PRODUCT, payload: selectedProduct };
 }
 
 export function setTotal(total) {
@@ -54,7 +59,6 @@ export const getCategories = () => async (dispatch) => {
       .then((response) => {
         if (response.status === 200) {
           dispatch(setCategories(response.data));
-          toast.success("Categories fetched successfully");
         } else {
           dispatch(setCategories([]));
         }
@@ -117,7 +121,6 @@ export const getProducts = (props) => async (dispatch) => {
           dispatch(setTotal(response.data.total));
           dispatch(setProductList(response.data.products));
           dispatch(setFetchState("FETCHED"));
-          toast.success("ProductList fetched successfully");
         } else {
           dispatch(setProductList([]));
         }
@@ -133,5 +136,23 @@ export const getProducts = (props) => async (dispatch) => {
     dispatch(setProductList([]));
     dispatch(setFetchState("NOT_FETCHED"));
     toast.error("Error fetching productList", error);
+  }
+};
+
+export const getProductById = (id) => async (dispatch) => {
+  try {
+    console.log("Product ID:", id);
+    await api.get(`/products/${id}`).then((response) => {
+      console.log("Response:", response.status);
+      if (response.status === 200) {
+        dispatch(setSelectedProduct(response.data));
+        console.log("Selected Product:", response.data);
+      } else {
+        dispatch(setSelectedProduct({}));
+      }
+    });
+  } catch (error) {
+    toast.error("Error fetching product by ID", error);
+    dispatch(setSelectedProduct({}));
   }
 };

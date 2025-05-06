@@ -13,39 +13,75 @@ import {
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { FourthProductCard } from "../components/FourthProductCard";
 import { Clients } from "../components/Clients";
+import {
+  Link,
+  useHistory,
+  useParams,
+} from "react-router-dom/cjs/react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getProductById } from "../store/actions/productAction";
 
 export function ProductDetailPage({ setIsHomePage, isMobile }) {
+  const dispatch = useDispatch();
+  const { productId } = useParams();
+  const history = useHistory();
+
   useEffect(() => {
     setIsHomePage(false);
-  });
+  }, []);
 
-  const [menu, setMenu] = useState(false);
+  useEffect(() => {
+    console.log("Merhaba");
+    dispatch(getProductById(productId));
+  }, [dispatch, productId]);
+
+  const { selectedProduct } = useSelector((state) => state.product);
+
   const [current, setCurrent] = useState(0);
 
   const nextSlide = () => {
-    setCurrent((prev) => (prev + 1) % items.length);
+    setCurrent((prev) => (prev + 1) % 1);
   };
 
   const prevSlide = () => {
-    setCurrent((prev) => (prev - 1 + items.length) % items.length);
+    setCurrent((prev) => (prev - 1 + 1) % 1);
   };
+
+  if (!selectedProduct || Object.keys(selectedProduct).length === 0) {
+    console.log(selectedProduct);
+    return (
+      <div className="flex flex-col items-center justify-center w-full h-[300px]">
+        <div className="inline-block lg:inline-block ml-4 w-20 h-20 border-2 border-[#23A6F0] border-t-transparent rounded-full animate-spin"></div>
+      </div>
+    );
+  }
+
+  const { name, price, description, images } = selectedProduct;
 
   return (
     <section className="bg-[#FAFAFA] flex flex-col ">
+      <div className="flex items-center justify-center lg:justify-start lg:ml-60 gap-2">
+        <button
+          className="bg-[#23A6F0] !rounded-sm text-white font-bold py-2.5 px-4 lg:!mt-4"
+          onClick={() => history.goBack()}
+        >
+          Back Previous Page
+        </button>
+      </div>
       <div className="flex items-center justify-center lg:justify-start lg:ml-60 gap-2 mt-4">
-        <a
+        <Link
           className="font-bold text-center !text-[#252B42] !no-underline cursor-pointer"
-          href="/home"
+          to="/"
         >
           Home
-        </a>
+        </Link>
         <img className="w-1.5 text-[#737373]" src={rightIconBlue} alt="" />
-        <a
+        <Link
           className=" font-bold text-center !text-[#737373] !no-underline cursor-pointer"
-          href="/shop"
+          to="/shop"
         >
           Shop
-        </a>
+        </Link>
       </div>
 
       <section className="lg:flex gap-4">
@@ -55,21 +91,13 @@ export function ProductDetailPage({ setIsHomePage, isMobile }) {
               className="flex transition-transform duration-500"
               style={{ transform: `translateX(-${current * 100}%)` }}
             >
-              {productDetailsItems.map((item, index) => (
-                <div key={index} className="relative flex-shrink-0 w-fit">
-                  <picture>
-                    <source
-                      srcSet={item.srcDesktop}
-                      media="(min-width: 1024px)"
-                    />
-                    <img
-                      src={item.src}
-                      alt={item.alt}
-                      className="lg:w-screen lg:object-full w-[348px] h-[277px] lg:h-[405px]"
-                    />
-                  </picture>
-                </div>
-              ))}
+              <div className="relative flex-shrink-0 w-fit">
+                <img
+                  src={images[0].url}
+                  alt=""
+                  className="lg:w-screen lg:object-full w-[348px] h-[277px] lg:h-[405px]"
+                />
+              </div>
             </div>
 
             {/* OK butonları */}
@@ -87,7 +115,7 @@ export function ProductDetailPage({ setIsHomePage, isMobile }) {
             </button>
           </div>
           <div className="flex gap-4 items-center justify-start ml-4 mb-10 lg:!ml-60">
-            {productDetailsItems.map((item, index) => {
+            {Array.from({ length: 1 }, (_, index) => {
               return (
                 <section key={index}>
                   <div
@@ -96,7 +124,7 @@ export function ProductDetailPage({ setIsHomePage, isMobile }) {
                     }`}
                     onClick={() => setCurrent(index)}
                   >
-                    <img className="w-24 h-16" src={item.src} alt="" />
+                    <img className="w-24 h-16" src={images[0].url} alt="" />
                   </div>
                 </section>
               );
@@ -105,27 +133,25 @@ export function ProductDetailPage({ setIsHomePage, isMobile }) {
         </div>
 
         <div className="flex flex-col items-start justify-start ml-8 w-[74%] mb-10 lg:!mt-14">
-          <h4 className="!text-[20px] !text-[#252B42]">Hamburger</h4>
+          <h4 className="!text-[20px] !text-[#252B42]">{name}</h4>
           <div className="flex items-center justify-center gap-8 mt-2 mb-4">
             <img src={stars} alt="" />
             <h6 className="!text-[18px] !font-bold !text-[#737373] m-0">
               10 Reviews
             </h6>
           </div>
-          <h3 className="!text-[#252B42] !font-bold text-[24px]">$15</h3>
+          <h3 className="!text-[#252B42] !font-bold text-[24px]">{price}₺</h3>
           <div className="flex gap-2">
             <h6 className="!text-[#737373] !text-[20px]">Availability : </h6>
             <h6 className="!text-[#23A6F0] !text-[20px]">In Stock</h6>
           </div>
           <p className="!text-[14px] !text-[#858585] my-4 !font-bold w-[220px] text-left lg:w-[464px]">
-            Met minim Mollie non desert Alamo est sit cliquey dolor do met sent.
-            RELIT official consequent door ENIM RELIT Mollie. Excitation venial
-            consequent sent nostrum met.
+            {description}
           </p>
           <div className="border-1 w-full text-[#BDBDBD] lg:w-[464px]"></div>
           <div className="flex gap-2 mt-10">
             <button className="!rounded-[4px] !bg-[#23A6F0] !text-white py-2 px-3 !font-bold !text-[14px]">
-              Select Options
+              Sepete Ekle
             </button>
             <img src={likeCircle} alt="" />
             <img src={basketCircle} alt="" />

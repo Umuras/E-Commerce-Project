@@ -23,6 +23,8 @@ export function ShopPageItemsArea({
   function handleSortChange(event) {
     const selectedValue = event.target.value;
     dispatch(setSort(selectedValue));
+    setCurrentPage(1); // Reset to the first page when sorting changes
+    dispatch(setOffset(0)); // Reset offset to 0 when sorting changes
     handleGetProductsForSelectedCategory(
       selectedCategory,
       selectedValue,
