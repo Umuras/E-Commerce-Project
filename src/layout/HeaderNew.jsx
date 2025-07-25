@@ -254,17 +254,18 @@ export function HeaderNew({
             <div className="hidden lg:flex lg:gap-3 lg:items-center lg:justify-center">
               <img src={search} alt="" />
               <div className="hidden lg:flex lg:gap-1">
-                <img src={basket} alt="" />
-                <label className="text-[#23A6F0]" htmlFor="">
-                  1
-                </label>
+                <img
+                  className="cursor-pointer"
+                  src={basket}
+                  alt=""
+                  onClick={() => console.log("Sepete tıklandı")}
+                />
+                <label className="text-[#23A6F0]" htmlFor=""></label>
               </div>
 
               <div className="hidden lg:flex lg:gap-1">
                 <img src={like} alt="" />
-                <label className="text-[#23A6F0]" htmlFor="">
-                  1
-                </label>
+                <label className="text-[#23A6F0]" htmlFor=""></label>
               </div>
             </div>
           )}
