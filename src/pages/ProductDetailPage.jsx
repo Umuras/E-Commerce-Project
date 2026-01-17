@@ -20,6 +20,7 @@ import {
 } from "react-router-dom/cjs/react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductById } from "../store/actions/productAction";
+import { setCart } from "../store/actions/shoppingCartAction";
 
 export function ProductDetailPage({ setIsHomePage, isMobile }) {
   const dispatch = useDispatch();
@@ -150,7 +151,12 @@ export function ProductDetailPage({ setIsHomePage, isMobile }) {
           </p>
           <div className="border-1 w-full text-[#BDBDBD] lg:w-[464px]"></div>
           <div className="flex gap-2 mt-10">
-            <button className="!rounded-[4px] !bg-[#23A6F0] !text-white py-2 px-3 !font-bold !text-[14px]">
+            <button
+              className="!rounded-[4px] !bg-[#23A6F0] !text-white py-2 px-3 !font-bold !text-[14px]"
+              onClick={() => {
+                dispatch(setCart(selectedProduct));
+              }}
+            >
               Sepete Ekle
             </button>
             <img src={likeCircle} alt="" />

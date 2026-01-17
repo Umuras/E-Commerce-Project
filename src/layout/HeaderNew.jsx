@@ -33,6 +33,7 @@ import Gravatar from "react-gravatar";
 import { useDispatch, useSelector } from "react-redux";
 import { set } from "react-hook-form";
 import { setUser } from "../store/actions/clientAction";
+import CartDropdown from "../components/CartDropdown";
 
 export function HeaderNew({
   isMobile,
@@ -52,6 +53,7 @@ export function HeaderNew({
   const [current, setCurrent] = useState(0);
   const [loginLayout, setLoginLayout] = useState(false);
   const [shopDropdown, setShopDropdown] = useState(false);
+  const [cartDropdown, setCartDropdown] = useState(false);
 
   const { user } = useSelector((state) => state.client);
   //console.log("user", user);
@@ -258,8 +260,10 @@ export function HeaderNew({
                   className="cursor-pointer"
                   src={basket}
                   alt=""
-                  onClick={() => console.log("Sepete tıklandı")}
+                  onClick={() => setCartDropdown(!cartDropdown)}
                 />
+                {cartDropdown && <CartDropdown />}
+
                 <label className="text-[#23A6F0]" htmlFor=""></label>
               </div>
 

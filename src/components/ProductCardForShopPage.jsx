@@ -2,8 +2,9 @@ import { toast } from "react-toastify";
 import { bestSellerProducts, shopPageItemsForMobile } from "../dummyData";
 import { Clients } from "./Clients";
 import { Link, useHistory } from "react-router-dom/cjs/react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
+import { setCart } from "../store/actions/shoppingCartAction";
 
 export function ProductCardForShopPage({ isMobile }) {
   const history = useHistory();
@@ -18,16 +19,13 @@ export function ProductCardForShopPage({ isMobile }) {
     (category) => category.id === selectedCategory
   );
 
+  const dispatchEvent = useDispatch();
+
   console.log("Product List:", productList);
 
   const handleAddToCart = (product) => {
-    const token = localStorage.getItem("token");
-    if (token || Object.keys(user).length > 0) {
-      console.log("Sepete Ekle");
-    } else {
-      toast.error("Lütfen giriş yapın");
-      history.push("/login"); // Navigate to the login page
-    }
+    dispatchEvent(setCart(product));
+    toast.success("Product added to cart!", { position: "top-right" });
   };
   const productNumber = isMobile ? 4 : 12;
   if (!productList || productList.length === 0) {
@@ -79,7 +77,7 @@ export function ProductCardForShopPage({ isMobile }) {
               </Link>
               <button
                 className="bg-blue-400 text-white text-lg font-bold rounded-lg px-4 py-2 w-full"
-                onClick={handleAddToCart}
+                onClick={() => handleAddToCart(item)}
               >
                 Sepete Ekle
               </button>
